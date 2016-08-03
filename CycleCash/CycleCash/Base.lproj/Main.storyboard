@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="-169.5" y="387.5"/>
         </scene>
-        <!--View Controller-->
+        <!--HomeVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CycleCash" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="HomeVC" customModule="CycleCash" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="339.5" y="387.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Redeem PointsVC-->
         <scene sceneID="eDh-Gf-DaR">
             <objects>
-                <viewController id="mJh-0U-Ode" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RedeemPointsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mJh-0U-Ode" customClass="RedeemPointsVC" customModule="CycleCash" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Cgy-J6-R4r"/>
                         <viewControllerLayoutGuide type="bottom" id="SLV-yU-shW"/>
@@ -129,10 +129,10 @@
             </objects>
             <point key="canvasLocation" x="835.5" y="-382.5"/>
         </scene>
-        <!--View Controller-->
+        <!--DashboardVC-->
         <scene sceneID="cEI-ap-RgO">
             <objects>
-                <viewController id="hIJ-ix-aSa" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DashboardVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hIJ-ix-aSa" customClass="DashboardVC" customModule="CycleCash" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6vm-DL-FHd"/>
                         <viewControllerLayoutGuide type="bottom" id="V1e-JK-ksu"/>
@@ -187,10 +187,10 @@
             </objects>
             <point key="canvasLocation" x="835.5" y="387.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Pedal PointsVC-->
         <scene sceneID="LzF-it-HAa">
             <objects>
-                <viewController id="4M9-sf-Aun" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PedalPointsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4M9-sf-Aun" customClass="PedalPointsVC" customModule="CycleCash" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Ng-jo-BXu"/>
                         <viewControllerLayoutGuide type="bottom" id="IVV-G5-ayx"/>
