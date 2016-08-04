@@ -10,10 +10,21 @@ import UIKit
 
 class RedeemPointsVC: UIViewController {
 
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var hrBarTop: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.navigationBar.topItem?.title = "Redeem Your Points"
     }
 
     override func didReceiveMemoryWarning() {

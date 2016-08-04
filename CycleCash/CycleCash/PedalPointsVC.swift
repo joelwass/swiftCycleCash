@@ -10,10 +10,20 @@ import UIKit
 
 class PedalPointsVC: UIViewController {
 
+    @IBOutlet weak var pointsLabel: UILabel!
+    @IBOutlet weak var adView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.navigationBar.topItem?.title = "Pedal Points"
     }
 
     override func didReceiveMemoryWarning() {
