@@ -16,7 +16,7 @@ class PedalPointsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.adView.image = UIImage(named: "carShopLogo")
     }
     
     override func viewWillAppear(animated: Bool) {
