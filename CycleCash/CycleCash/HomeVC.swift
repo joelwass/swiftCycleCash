@@ -20,7 +20,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         
         self.homePageImage.image = UIImage(named: "cycleCashLogo")
-        self.view.backgroundColor = UIColor.cyanColor()
+       // self.view.backgroundColor = UIColor.cyanColor()
         self.trackYourMilesButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         self.pedalPointsButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         self.spendPointsButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)

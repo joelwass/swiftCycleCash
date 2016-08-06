@@ -12,12 +12,11 @@ class RedeemPointsVC: UIViewController {
 
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var hrBarTop: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.tableView.backgroundColor = UIColor.blueColor()
     }
     
     override func viewWillAppear(animated: Bool) {

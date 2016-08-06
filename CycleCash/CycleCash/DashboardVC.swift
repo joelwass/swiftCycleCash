@@ -27,10 +27,14 @@ class DashboardVC: UIViewController {
         self.adView.image = UIImage(named: "carShopLogo")
         
         self.startButton.layer.cornerRadius = 10
-        self.startButton.titleLabel?.text = "Start"
+        self.startButton.setTitle("Start", forState: .Normal)
+        self.startButton.backgroundColor = UIColor.greenColor()
+        self.startButton.layer.opacity = 0.5
         
         self.stopButton.layer.cornerRadius = 10
-        self.stopButton.titleLabel?.text = "Stop"
+        self.stopButton.setTitle("Stop", forState: .Normal)
+        self.stopButton.backgroundColor = UIColor.redColor()
+        self.stopButton.layer.opacity = 0.5
     }
     
     override func viewWillAppear(animated: Bool) {
