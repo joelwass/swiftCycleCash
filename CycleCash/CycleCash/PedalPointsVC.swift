@@ -16,6 +16,7 @@ class PedalPointsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.leftBarButtonItem?.image = UIImage(named: "menu")
         self.adView.image = UIImage(named: "carShopLogo")
     }
     

@@ -11,6 +11,7 @@
 		EE2712621D524A0600B58AB6 /* PedalPointsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2712611D524A0600B58AB6 /* PedalPointsVC.swift */; };
 		EE2712641D524A0E00B58AB6 /* RedeemPointsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2712631D524A0E00B58AB6 /* RedeemPointsVC.swift */; };
 		EE2712661D524A2F00B58AB6 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2712651D524A2F00B58AB6 /* DashboardVC.swift */; };
+		EE5181C31D56CDFE0039E2AE /* navVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5181C21D56CDFE0039E2AE /* navVC.swift */; };
 		EEB2F6D71D5191CC008EED3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB2F6D61D5191CC008EED3A /* AppDelegate.swift */; };
 		EEB2F6D91D5191CC008EED3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB2F6D81D5191CC008EED3A /* ViewController.swift */; };
 		EEB2F6DC1D5191CC008EED3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEB2F6DA1D5191CC008EED3A /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		EE2712611D524A0600B58AB6 /* PedalPointsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedalPointsVC.swift; sourceTree = "<group>"; };
 		EE2712631D524A0E00B58AB6 /* RedeemPointsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemPointsVC.swift; sourceTree = "<group>"; };
 		EE2712651D524A2F00B58AB6 /* DashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
+		EE5181C21D56CDFE0039E2AE /* navVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = navVC.swift; sourceTree = "<group>"; };
 		EEB2F6D31D5191CC008EED3A /* CycleCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CycleCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB2F6D61D5191CC008EED3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB2F6D81D5191CC008EED3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				EE2712611D524A0600B58AB6 /* PedalPointsVC.swift */,
 				EE2712631D524A0E00B58AB6 /* RedeemPointsVC.swift */,
 				EE2712651D524A2F00B58AB6 /* DashboardVC.swift */,
+				EE5181C21D56CDFE0039E2AE /* navVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				EE2712641D524A0E00B58AB6 /* RedeemPointsVC.swift in Sources */,
 				EE2712661D524A2F00B58AB6 /* DashboardVC.swift in Sources */,
 				EEB2F6D91D5191CC008EED3A /* ViewController.swift in Sources */,
+				EE5181C31D56CDFE0039E2AE /* navVC.swift in Sources */,
 				EE2712601D5249F900B58AB6 /* HomeVC.swift in Sources */,
 				EEB2F6DF1D5191CC008EED3A /* CycleCash.xcdatamodeld in Sources */,
 				EEB2F6D71D5191CC008EED3A /* AppDelegate.swift in Sources */,

@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum State {
+    case categories
+    case automotive
+    case carshop
+}
+
 class RedeemPointsVC: UIViewController {
 
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -16,6 +22,7 @@ class RedeemPointsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.leftBarButtonItem?.image = UIImage(named: "menu")
         self.tableView.backgroundColor = UIColor.blueColor()
     }
     

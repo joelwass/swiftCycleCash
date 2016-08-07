@@ -21,6 +21,10 @@ class DashboardVC: UIViewController {
     @IBOutlet weak var speedDurationHr: UIView!
     @IBOutlet weak var buttonTopHr: UIView!
     
+    var distance = 0.0
+    var duration = NSTimer()
+    var speed = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
