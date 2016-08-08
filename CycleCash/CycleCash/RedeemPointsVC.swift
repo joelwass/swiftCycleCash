@@ -14,7 +14,7 @@ enum State {
     case carshop
 }
 
-class RedeemPointsVC: UIViewController {
+class RedeemPointsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -25,7 +25,7 @@ class RedeemPointsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.backgroundColor = UIColor.blueColor()
+        self.tableView.backgroundColor = UIColor.init(hex:0xcef4f5)
         self.view.backgroundColor = UIColor.init(hex:0xcef4f5)
         self.titleLabel.text = "Redeem Points"
         
@@ -45,4 +45,31 @@ class RedeemPointsVC: UIViewController {
     @IBAction func menuButtonPressed(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cellIdentifier = "Category"
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath:indexPath) as? CategoryCell
+        if cell == nil {
+            cell = UITableViewCell(style: .Default, reuseIdentifier: cellIdentifier) as? CategoryCell
+        }
+        return cell!
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 70
+    }
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)  {
+
+    }
+
 }

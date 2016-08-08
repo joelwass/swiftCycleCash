@@ -19,6 +19,9 @@
 		EE535EA01D5812F300D386C7 /* BoosterNextFY-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE535E9A1D5812F300D386C7 /* BoosterNextFY-Medium.otf */; };
 		EE535EA11D5812F300D386C7 /* BoosterNextFY-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE535E9B1D5812F300D386C7 /* BoosterNextFY-Regular.otf */; };
 		EE535EA21D5812F300D386C7 /* BoosterNextFY-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE535E9C1D5812F300D386C7 /* BoosterNextFY-Thin.otf */; };
+		EE535EA61D581F5800D386C7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE535EA51D581F5800D386C7 /* TableViewController.swift */; };
+		EE535EA91D58209700D386C7 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE535EA81D58209700D386C7 /* CategoryCell.swift */; };
+		EE535EAB1D5820AE00D386C7 /* LogoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE535EAA1D5820AE00D386C7 /* LogoCell.swift */; };
 		EEB2F6D71D5191CC008EED3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB2F6D61D5191CC008EED3A /* AppDelegate.swift */; };
 		EEB2F6DC1D5191CC008EED3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEB2F6DA1D5191CC008EED3A /* Main.storyboard */; };
 		EEB2F6DF1D5191CC008EED3A /* CycleCash.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEB2F6DD1D5191CC008EED3A /* CycleCash.xcdatamodeld */; };
@@ -58,6 +61,9 @@
 		EE535E9A1D5812F300D386C7 /* BoosterNextFY-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BoosterNextFY-Medium.otf"; sourceTree = "<group>"; };
 		EE535E9B1D5812F300D386C7 /* BoosterNextFY-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BoosterNextFY-Regular.otf"; sourceTree = "<group>"; };
 		EE535E9C1D5812F300D386C7 /* BoosterNextFY-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BoosterNextFY-Thin.otf"; sourceTree = "<group>"; };
+		EE535EA51D581F5800D386C7 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		EE535EA81D58209700D386C7 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		EE535EAA1D5820AE00D386C7 /* LogoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoCell.swift; sourceTree = "<group>"; };
 		EEB2F6D31D5191CC008EED3A /* CycleCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CycleCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB2F6D61D5191CC008EED3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB2F6DB1D5191CC008EED3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,6 +117,15 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		EE535EA71D58208500D386C7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EE535EA81D58209700D386C7 /* CategoryCell.swift */,
+				EE535EAA1D5820AE00D386C7 /* LogoCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		EEB2F6CA1D5191CC008EED3A = {
 			isa = PBXGroup;
 			children = (
@@ -162,11 +177,13 @@
 		EEB2F7071D519799008EED3A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EE535EA71D58208500D386C7 /* Cells */,
 				EE27125F1D5249F900B58AB6 /* HomeVC.swift */,
 				EE2712611D524A0600B58AB6 /* PedalPointsVC.swift */,
 				EE2712631D524A0E00B58AB6 /* RedeemPointsVC.swift */,
 				EE2712651D524A2F00B58AB6 /* DashboardVC.swift */,
 				EE5181C21D56CDFE0039E2AE /* navVC.swift */,
+				EE535EA51D581F5800D386C7 /* TableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -330,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE535EAB1D5820AE00D386C7 /* LogoCell.swift in Sources */,
 				EE2712621D524A0600B58AB6 /* PedalPointsVC.swift in Sources */,
 				EE2712641D524A0E00B58AB6 /* RedeemPointsVC.swift in Sources */,
 				EE2712661D524A2F00B58AB6 /* DashboardVC.swift in Sources */,
@@ -337,7 +355,9 @@
 				EE5181C31D56CDFE0039E2AE /* navVC.swift in Sources */,
 				EE2712601D5249F900B58AB6 /* HomeVC.swift in Sources */,
 				EEB2F6DF1D5191CC008EED3A /* CycleCash.xcdatamodeld in Sources */,
+				EE535EA61D581F5800D386C7 /* TableViewController.swift in Sources */,
 				EEB2F6D71D5191CC008EED3A /* AppDelegate.swift in Sources */,
+				EE535EA91D58209700D386C7 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
