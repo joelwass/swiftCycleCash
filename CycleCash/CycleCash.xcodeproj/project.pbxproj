@@ -12,6 +12,7 @@
 		EE2712641D524A0E00B58AB6 /* RedeemPointsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2712631D524A0E00B58AB6 /* RedeemPointsVC.swift */; };
 		EE2712661D524A2F00B58AB6 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2712651D524A2F00B58AB6 /* DashboardVC.swift */; };
 		EE5181C31D56CDFE0039E2AE /* navVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5181C21D56CDFE0039E2AE /* navVC.swift */; };
+		EE5181C51D58013A0039E2AE /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5181C41D58013A0039E2AE /* UserSettings.swift */; };
 		EEB2F6D71D5191CC008EED3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB2F6D61D5191CC008EED3A /* AppDelegate.swift */; };
 		EEB2F6D91D5191CC008EED3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB2F6D81D5191CC008EED3A /* ViewController.swift */; };
 		EEB2F6DC1D5191CC008EED3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEB2F6DA1D5191CC008EED3A /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		EE2712631D524A0E00B58AB6 /* RedeemPointsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemPointsVC.swift; sourceTree = "<group>"; };
 		EE2712651D524A2F00B58AB6 /* DashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		EE5181C21D56CDFE0039E2AE /* navVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = navVC.swift; sourceTree = "<group>"; };
+		EE5181C41D58013A0039E2AE /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		EEB2F6D31D5191CC008EED3A /* CycleCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CycleCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB2F6D61D5191CC008EED3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB2F6D81D5191CC008EED3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				EEB2F6DD1D5191CC008EED3A /* CycleCash.xcdatamodeld */,
 				EEB2F6E51D5191CC008EED3A /* Info.plist */,
 				EEB2F6E21D5191CC008EED3A /* LaunchScreen.storyboard */,
+				EE5181C41D58013A0039E2AE /* UserSettings.swift */,
 			);
 			name = Supporting;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				EE2712641D524A0E00B58AB6 /* RedeemPointsVC.swift in Sources */,
 				EE2712661D524A2F00B58AB6 /* DashboardVC.swift in Sources */,
 				EEB2F6D91D5191CC008EED3A /* ViewController.swift in Sources */,
+				EE5181C51D58013A0039E2AE /* UserSettings.swift in Sources */,
 				EE5181C31D56CDFE0039E2AE /* navVC.swift in Sources */,
 				EE2712601D5249F900B58AB6 /* HomeVC.swift in Sources */,
 				EEB2F6DF1D5191CC008EED3A /* CycleCash.xcdatamodeld in Sources */,
