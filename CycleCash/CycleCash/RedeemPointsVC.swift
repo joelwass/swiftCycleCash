@@ -19,11 +19,15 @@ class RedeemPointsVC: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    let fontOfChoice = UserSettings.SharedInstance.Font
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.leftBarButtonItem?.image = UIImage(named: "menu")
         self.tableView.backgroundColor = UIColor.blueColor()
+        
+        self.descriptionLabel.font = UIFont(name: fontOfChoice, size: 14.0)
     }
     
     override func viewWillAppear(animated: Bool) {

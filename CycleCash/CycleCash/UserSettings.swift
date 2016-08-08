@@ -16,6 +16,7 @@ public class UserSettings {
         static let PedalPoints = "PedalPoints"
         static let Distance = "Distance"
         static let Time = "Time"
+        static let Font = "BoosterNextFY-Medium"
     }
     
     public class var SharedInstance: UserSettings {
@@ -49,6 +50,19 @@ public class UserSettings {
         }
         set (newTime) {
             NSUserDefaults.standardUserDefaults().setInteger(newTime, forKey: Constants.Distance)
+        }
+    }
+    
+    public var Font:String {
+        get {
+            if let currentFont = NSUserDefaults.standardUserDefaults().stringForKey(Constants.Font) {
+                return currentFont
+            } else {
+                return "BoosterNextFY-Medium"
+            }
+        }
+        set (newFont) {
+            NSUserDefaults.standardUserDefaults().setObject(newFont, forKey: Constants.Font)
         }
     }
 }

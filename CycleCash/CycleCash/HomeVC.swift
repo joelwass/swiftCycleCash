@@ -16,6 +16,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var pedalPointsButton: UIButton!
     @IBOutlet weak var spendPointsButton: UIButton!
     
+    let fontOfChoice = UserSettings.SharedInstance.Font
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,10 +32,14 @@ class HomeVC: UIViewController {
         self.pedalPointsButton.setTitle("Pedal Points", forState: .Normal)
         self.spendPointsButton.setTitle("Spend Points", forState: .Normal)
         
-        self.cycleCashLabel.font = UIFont(name: "BoosterNextFY-Medium", size: 42.0)
-        self.trackYourMilesButton.titleLabel?.font = UIFont(name: "BoosterNextFY-Medium", size: 20.0)
-        self.pedalPointsButton.titleLabel?.font = UIFont(name: "BoosterNextFY-Medium", size: 20.0)
-        self.spendPointsButton.titleLabel?.font = UIFont(name: "BoosterNextFY-Medium", size: 20.0)
+        self.cycleCashLabel.font = UIFont(name: fontOfChoice, size: 42.0)
+        self.trackYourMilesButton.titleLabel?.font = UIFont(name: fontOfChoice, size: 20.0)
+        self.pedalPointsButton.titleLabel?.font = UIFont(name: fontOfChoice, size: 20.0)
+        self.spendPointsButton.titleLabel?.font = UIFont(name: fontOfChoice, size: 20.0)
+        
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSForegroundColorAttributeName: UIColor.whiteColor(),
+             NSFontAttributeName: UIFont(name: fontOfChoice, size: 21)!]
     }
     
     override func viewWillAppear(animated: Bool) {

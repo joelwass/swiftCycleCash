@@ -13,11 +13,15 @@ class PedalPointsVC: UIViewController {
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var adView: UIImageView!
     
+    let fontOfChoice = UserSettings.SharedInstance.Font
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.leftBarButtonItem?.image = UIImage(named: "menu")
         self.adView.image = UIImage(named: "carShopLogo")
+        
+        self.pointsLabel.font = UIFont(name: fontOfChoice, size: 150.0)
     }
     
     override func viewWillAppear(animated: Bool) {

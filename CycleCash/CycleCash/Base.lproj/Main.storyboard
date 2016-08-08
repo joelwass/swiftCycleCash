@@ -27,7 +27,6 @@
         <!--HomeVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="HomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="HomeVC" customModule="CycleCash" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -105,6 +104,7 @@
                         <outlet property="trackYourMilesButton" destination="55O-Sd-kUZ" id="PpZ-H0-NFh"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="339.5" y="387.5"/>
         </scene>
@@ -319,8 +319,11 @@
                         <outlet property="adView" destination="gd2-mk-tmj" id="7dY-vu-DnV"/>
                         <outlet property="buttonTopHr" destination="IDo-bz-Jl3" id="app-IH-yof"/>
                         <outlet property="distanceBottomHr" destination="tHK-mz-TNF" id="Ybe-B3-kcE"/>
+                        <outlet property="durationBottomLabel" destination="N07-hy-40X" id="cwf-RG-5ob"/>
                         <outlet property="durationLabel" destination="0E6-nW-CZ6" id="Hq1-yq-rsm"/>
+                        <outlet property="milesBottomlabel" destination="c6J-Ig-taw" id="1kQ-P9-r7b"/>
                         <outlet property="milesLabel" destination="whh-Ch-EEP" id="rmj-ui-5k1"/>
+                        <outlet property="speedBottomLabel" destination="GFD-o7-b3F" id="nc9-vK-tqM"/>
                         <outlet property="speedDurationHr" destination="ysz-ie-1Zc" id="Lbq-QC-uRi"/>
                         <outlet property="speedLabel" destination="cfb-1f-bG0" id="Rjd-iM-vHp"/>
                         <outlet property="startButton" destination="etU-Rr-074" id="WS7-pj-EpI"/>

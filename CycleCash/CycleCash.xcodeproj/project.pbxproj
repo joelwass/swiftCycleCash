@@ -20,7 +20,6 @@
 		EE535EA11D5812F300D386C7 /* BoosterNextFY-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE535E9B1D5812F300D386C7 /* BoosterNextFY-Regular.otf */; };
 		EE535EA21D5812F300D386C7 /* BoosterNextFY-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE535E9C1D5812F300D386C7 /* BoosterNextFY-Thin.otf */; };
 		EEB2F6D71D5191CC008EED3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB2F6D61D5191CC008EED3A /* AppDelegate.swift */; };
-		EEB2F6D91D5191CC008EED3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB2F6D81D5191CC008EED3A /* ViewController.swift */; };
 		EEB2F6DC1D5191CC008EED3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEB2F6DA1D5191CC008EED3A /* Main.storyboard */; };
 		EEB2F6DF1D5191CC008EED3A /* CycleCash.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEB2F6DD1D5191CC008EED3A /* CycleCash.xcdatamodeld */; };
 		EEB2F6E11D5191CC008EED3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB2F6E01D5191CC008EED3A /* Assets.xcassets */; };
@@ -61,7 +60,6 @@
 		EE535E9C1D5812F300D386C7 /* BoosterNextFY-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BoosterNextFY-Thin.otf"; sourceTree = "<group>"; };
 		EEB2F6D31D5191CC008EED3A /* CycleCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CycleCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB2F6D61D5191CC008EED3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EEB2F6D81D5191CC008EED3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EEB2F6DB1D5191CC008EED3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EEB2F6DE1D5191CC008EED3A /* CycleCash.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CycleCash.xcdatamodel; sourceTree = "<group>"; };
 		EEB2F6E01D5191CC008EED3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 		EEB2F7071D519799008EED3A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				EEB2F6D81D5191CC008EED3A /* ViewController.swift */,
 				EE27125F1D5249F900B58AB6 /* HomeVC.swift */,
 				EE2712611D524A0600B58AB6 /* PedalPointsVC.swift */,
 				EE2712631D524A0E00B58AB6 /* RedeemPointsVC.swift */,
@@ -336,7 +333,6 @@
 				EE2712621D524A0600B58AB6 /* PedalPointsVC.swift in Sources */,
 				EE2712641D524A0E00B58AB6 /* RedeemPointsVC.swift in Sources */,
 				EE2712661D524A2F00B58AB6 /* DashboardVC.swift in Sources */,
-				EEB2F6D91D5191CC008EED3A /* ViewController.swift in Sources */,
 				EE5181C51D58013A0039E2AE /* UserSettings.swift in Sources */,
 				EE5181C31D56CDFE0039E2AE /* navVC.swift in Sources */,
 				EE2712601D5249F900B58AB6 /* HomeVC.swift in Sources */,

@@ -16,6 +16,9 @@ class DashboardVC: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var adView: UIImageView!
+    @IBOutlet weak var milesBottomlabel: UILabel!
+    @IBOutlet weak var durationBottomLabel: UILabel!
+    @IBOutlet weak var speedBottomLabel: UILabel!
     
     @IBOutlet weak var distanceBottomHr: UIView!
     @IBOutlet weak var speedDurationHr: UIView!
@@ -24,6 +27,8 @@ class DashboardVC: UIViewController {
     var distance = 0.0
     var duration = NSTimer()
     var speed = 0.0
+
+    let fontOfChoice = UserSettings.SharedInstance.Font
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +44,15 @@ class DashboardVC: UIViewController {
         self.stopButton.setTitle("Stop", forState: .Normal)
         self.stopButton.backgroundColor = UIColor.redColor()
         self.stopButton.layer.opacity = 0.5
+        
+        self.milesLabel.font = UIFont(name: fontOfChoice, size: 75.0)
+        self.durationLabel.font = UIFont(name: fontOfChoice, size: 60.0)
+        self.speedLabel.font = UIFont(name: fontOfChoice, size: 60.0)
+        self.stopButton.titleLabel?.font = UIFont(name: fontOfChoice, size: 34.0)
+        self.startButton.titleLabel?.font = UIFont(name: fontOfChoice, size: 34.0)
+        self.milesBottomlabel.font = UIFont(name: fontOfChoice, size: 14.0)
+        self.durationBottomLabel.font = UIFont(name: fontOfChoice, size: 14.0)
+        self.speedBottomLabel.font = UIFont(name: fontOfChoice, size: 14.0)
     }
     
     override func viewWillAppear(animated: Bool) {
