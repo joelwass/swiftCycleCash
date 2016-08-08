@@ -16,7 +16,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var pedalPointsButton: UIButton!
     @IBOutlet weak var spendPointsButton: UIButton!
     
-    let fontOfChoice = UserSettings.SharedInstance.Font
+    let fontOfChoice = GlobalSettings.SharedInstance.Font
     
     override func viewDidLoad() {
         super.viewDidLoad()

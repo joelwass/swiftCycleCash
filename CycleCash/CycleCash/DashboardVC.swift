@@ -31,7 +31,7 @@ class DashboardVC: UIViewController {
     var duration = NSTimer()
     var speed = 0.0
 
-    let fontOfChoice = UserSettings.SharedInstance.Font
+    let fontOfChoice = GlobalSettings.SharedInstance.Font
     
     override func viewDidLoad() {
         super.viewDidLoad()

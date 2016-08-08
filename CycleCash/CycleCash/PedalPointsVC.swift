@@ -16,7 +16,7 @@ class PedalPointsVC: UIViewController {
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var bottomHr: UIView!
     
-    let fontOfChoice = UserSettings.SharedInstance.Font
+    let fontOfChoice = GlobalSettings.SharedInstance.Font
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ class PedalPointsVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
-        self.pointsLabel.text = "\(UserSettings.SharedInstance.PedalPoints)"
+        self.pointsLabel.text = "\(GlobalSettings.SharedInstance.PedalPoints)"
     }
 
     override func didReceiveMemoryWarning() {

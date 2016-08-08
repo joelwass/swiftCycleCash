@@ -8,9 +8,9 @@
 
 import Foundation
 
-private let _UserSettings = UserSettings()
+private let _GlobalSettings = GlobalSettings()
 
-public class UserSettings {
+public class GlobalSettings {
     
     struct Constants {
         static let PedalPoints = "PedalPoints"
@@ -19,8 +19,8 @@ public class UserSettings {
         static let Font = "BoosterNextFY-Medium"
     }
     
-    public class var SharedInstance: UserSettings {
-        return _UserSettings
+    public class var SharedInstance: GlobalSettings {
+        return _GlobalSettings
     }
     
     public var PedalPoints:Int {
@@ -65,4 +65,6 @@ public class UserSettings {
             NSUserDefaults.standardUserDefaults().setObject(newFont, forKey: Constants.Font)
         }
     }
+    
+    public var LogoDictionary:[String: String] = ["":""]
 }

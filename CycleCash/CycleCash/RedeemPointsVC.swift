@@ -20,7 +20,7 @@ class RedeemPointsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var menuButton: UIButton!
     
-    let fontOfChoice = UserSettings.SharedInstance.Font
+    let fontOfChoice = GlobalSettings.SharedInstance.Font
     let currentState = State.categories
     
     let autoCases = ["Car Shop"]
