@@ -23,6 +23,8 @@ class PedalPointsVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
+        self.pointsLabel.text = "\(UserSettings.SharedInstance.PedalPoints)"
+        
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.topItem?.title = "Pedal Points"
     }

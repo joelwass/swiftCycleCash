@@ -20,11 +20,20 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         
         self.homePageImage.image = UIImage(named: "cycleCashLogo")
-       // self.view.backgroundColor = UIColor.cyanColor()
+        self.view.backgroundColor = UIColor.init(hex:0xcef4f5)
+        self.cycleCashLabel.textColor = UIColor.whiteColor()
         self.trackYourMilesButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         self.pedalPointsButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         self.spendPointsButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        // Do any additional setup after loading the view.
+        
+        self.trackYourMilesButton.setTitle("Track Your Miles", forState: .Normal)
+        self.pedalPointsButton.setTitle("Pedal Points", forState: .Normal)
+        self.spendPointsButton.setTitle("Spend Points", forState: .Normal)
+        
+        self.cycleCashLabel.font = UIFont(name: "BoosterNextFY-Medium", size: 42.0)
+        self.trackYourMilesButton.titleLabel?.font = UIFont(name: "BoosterNextFY-Medium", size: 20.0)
+        self.pedalPointsButton.titleLabel?.font = UIFont(name: "BoosterNextFY-Medium", size: 20.0)
+        self.spendPointsButton.titleLabel?.font = UIFont(name: "BoosterNextFY-Medium", size: 20.0)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -52,15 +61,18 @@ class HomeVC: UIViewController {
         let redeemPointsVC = self.storyboard?.instantiateViewControllerWithIdentifier("RedeemPointsVC") as! RedeemPointsVC
         self.navigationController?.pushViewController(redeemPointsVC, animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     }
-    */
-
+    
+    convenience init(hex:Int) {
+        self.init(red:(hex >> 16) & 0xff, green:(hex >> 8) & 0xff, blue:hex & 0xff)
+    }
 }

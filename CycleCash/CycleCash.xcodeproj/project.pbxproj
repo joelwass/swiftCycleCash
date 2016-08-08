@@ -13,6 +13,12 @@
 		EE2712661D524A2F00B58AB6 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2712651D524A2F00B58AB6 /* DashboardVC.swift */; };
 		EE5181C31D56CDFE0039E2AE /* navVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5181C21D56CDFE0039E2AE /* navVC.swift */; };
 		EE5181C51D58013A0039E2AE /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5181C41D58013A0039E2AE /* UserSettings.swift */; };
+		EE535E911D58102B00D386C7 /* BoosterNextFY-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE535E8B1D58102B00D386C7 /* BoosterNextFY-Black.otf */; };
+		EE535E921D58102B00D386C7 /* BoosterNextFY-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE535E8C1D58102B00D386C7 /* BoosterNextFY-Bold.otf */; };
+		EE535E931D58102B00D386C7 /* BoosterNextFY-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE535E8D1D58102B00D386C7 /* BoosterNextFY-Light.otf */; };
+		EE535E941D58102B00D386C7 /* BoosterNextFY-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE535E8E1D58102B00D386C7 /* BoosterNextFY-Medium.otf */; };
+		EE535E951D58102B00D386C7 /* BoosterNextFY-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE535E8F1D58102B00D386C7 /* BoosterNextFY-Regular.otf */; };
+		EE535E961D58102B00D386C7 /* BoosterNextFY-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE535E901D58102B00D386C7 /* BoosterNextFY-Thin.otf */; };
 		EEB2F6D71D5191CC008EED3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB2F6D61D5191CC008EED3A /* AppDelegate.swift */; };
 		EEB2F6D91D5191CC008EED3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB2F6D81D5191CC008EED3A /* ViewController.swift */; };
 		EEB2F6DC1D5191CC008EED3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEB2F6DA1D5191CC008EED3A /* Main.storyboard */; };
@@ -47,6 +53,12 @@
 		EE2712651D524A2F00B58AB6 /* DashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		EE5181C21D56CDFE0039E2AE /* navVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = navVC.swift; sourceTree = "<group>"; };
 		EE5181C41D58013A0039E2AE /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		EE535E8B1D58102B00D386C7 /* BoosterNextFY-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BoosterNextFY-Black.otf"; path = "CycleCash/BoosterNextFY-Black.otf"; sourceTree = "<group>"; };
+		EE535E8C1D58102B00D386C7 /* BoosterNextFY-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BoosterNextFY-Bold.otf"; path = "CycleCash/BoosterNextFY-Bold.otf"; sourceTree = "<group>"; };
+		EE535E8D1D58102B00D386C7 /* BoosterNextFY-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BoosterNextFY-Light.otf"; path = "CycleCash/BoosterNextFY-Light.otf"; sourceTree = "<group>"; };
+		EE535E8E1D58102B00D386C7 /* BoosterNextFY-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BoosterNextFY-Medium.otf"; path = "CycleCash/BoosterNextFY-Medium.otf"; sourceTree = "<group>"; };
+		EE535E8F1D58102B00D386C7 /* BoosterNextFY-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BoosterNextFY-Regular.otf"; path = "CycleCash/BoosterNextFY-Regular.otf"; sourceTree = "<group>"; };
+		EE535E901D58102B00D386C7 /* BoosterNextFY-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BoosterNextFY-Thin.otf"; path = "CycleCash/BoosterNextFY-Thin.otf"; sourceTree = "<group>"; };
 		EEB2F6D31D5191CC008EED3A /* CycleCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CycleCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB2F6D61D5191CC008EED3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB2F6D81D5191CC008EED3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +100,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE5181C61D580E090039E2AE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EE535E8B1D58102B00D386C7 /* BoosterNextFY-Black.otf */,
+				EE535E8C1D58102B00D386C7 /* BoosterNextFY-Bold.otf */,
+				EE535E8D1D58102B00D386C7 /* BoosterNextFY-Light.otf */,
+				EE535E8E1D58102B00D386C7 /* BoosterNextFY-Medium.otf */,
+				EE535E8F1D58102B00D386C7 /* BoosterNextFY-Regular.otf */,
+				EE535E901D58102B00D386C7 /* BoosterNextFY-Thin.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		EEB2F6CA1D5191CC008EED3A = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +184,7 @@
 		EEB2F7091D5197B2008EED3A /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				EE5181C61D580E090039E2AE /* Fonts */,
 				EEB2F6DA1D5191CC008EED3A /* Main.storyboard */,
 				EEB2F6D61D5191CC008EED3A /* AppDelegate.swift */,
 				EEB2F6E01D5191CC008EED3A /* Assets.xcassets */,
@@ -274,9 +300,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE535E911D58102B00D386C7 /* BoosterNextFY-Black.otf in Resources */,
+				EE535E941D58102B00D386C7 /* BoosterNextFY-Medium.otf in Resources */,
+				EE535E931D58102B00D386C7 /* BoosterNextFY-Light.otf in Resources */,
+				EE535E951D58102B00D386C7 /* BoosterNextFY-Regular.otf in Resources */,
 				EEB2F6E41D5191CC008EED3A /* LaunchScreen.storyboard in Resources */,
 				EEB2F6E11D5191CC008EED3A /* Assets.xcassets in Resources */,
+				EE535E921D58102B00D386C7 /* BoosterNextFY-Bold.otf in Resources */,
 				EEB2F6DC1D5191CC008EED3A /* Main.storyboard in Resources */,
+				EE535E961D58102B00D386C7 /* BoosterNextFY-Thin.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
