@@ -16,26 +16,25 @@ enum State {
 
 class RedeemPointsVC: UIViewController {
 
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var menuButton: UIButton!
     
     let fontOfChoice = UserSettings.SharedInstance.Font
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.leftBarButtonItem?.image = UIImage(named: "menu")
         self.tableView.backgroundColor = UIColor.blueColor()
         self.view.backgroundColor = UIColor.init(hex:0xcef4f5)
+        self.titleLabel.text = "Redeem Points"
         
-        self.descriptionLabel.font = UIFont(name: fontOfChoice, size: 14.0)
+        self.titleLabel.font = UIFont(name: fontOfChoice, size: 21.0)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.navigationBar.topItem?.title = "Redeem Your Points"
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,15 +42,7 @@ class RedeemPointsVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func menuButtonPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
-    */
-
 }

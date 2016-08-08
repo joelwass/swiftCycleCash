@@ -19,6 +19,9 @@ class DashboardVC: UIViewController {
     @IBOutlet weak var milesBottomlabel: UILabel!
     @IBOutlet weak var durationBottomLabel: UILabel!
     @IBOutlet weak var speedBottomLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var bottomHr: UIView!
     
     @IBOutlet weak var distanceBottomHr: UIView!
     @IBOutlet weak var speedDurationHr: UIView!
@@ -34,7 +37,7 @@ class DashboardVC: UIViewController {
         super.viewDidLoad()
         
         self.adView.image = UIImage(named: "carShopLogo")
-        
+        self.titleLabel.text = "Track Your Miles"
         self.view.backgroundColor = UIColor.init(hex:0xcef4f5)
         
         self.startButton.layer.cornerRadius = 10
@@ -55,13 +58,17 @@ class DashboardVC: UIViewController {
         self.milesBottomlabel.font = UIFont(name: fontOfChoice, size: 14.0)
         self.durationBottomLabel.font = UIFont(name: fontOfChoice, size: 14.0)
         self.speedBottomLabel.font = UIFont(name: fontOfChoice, size: 14.0)
+        self.titleLabel.font = UIFont(name: fontOfChoice, size: 21.0)
+        
+        bottomHr.layer.shadowColor = UIColor.blackColor().CGColor
+        bottomHr.layer.shadowOffset = CGSizeMake(0, 1)
+        bottomHr.layer.shadowOpacity = 0.5
+        bottomHr.layer.shadowRadius = 1.0
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.navigationBar.topItem?.title = "Track Your Miles"
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,14 +84,7 @@ class DashboardVC: UIViewController {
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func menuButtonPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
-    */
-
 }

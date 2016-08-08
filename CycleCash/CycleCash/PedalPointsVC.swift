@@ -12,26 +12,32 @@ class PedalPointsVC: UIViewController {
 
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var adView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var bottomHr: UIView!
     
     let fontOfChoice = UserSettings.SharedInstance.Font
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.leftBarButtonItem?.image = UIImage(named: "menu")
         self.adView.image = UIImage(named: "carShopLogo")
+        self.titleLabel.text = "My Pedal Points"
         self.view.backgroundColor = UIColor.init(hex:0xcef4f5)
         
         self.pointsLabel.font = UIFont(name: fontOfChoice, size: 150.0)
+        self.titleLabel.font = UIFont(name: fontOfChoice, size: 21.0)
+        
+        bottomHr.layer.shadowColor = UIColor.blackColor().CGColor
+        bottomHr.layer.shadowOffset = CGSizeMake(0, 1)
+        bottomHr.layer.shadowOpacity = 0.5
+        bottomHr.layer.shadowRadius = 1.0
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
         self.pointsLabel.text = "\(UserSettings.SharedInstance.PedalPoints)"
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.navigationBar.topItem?.title = "Pedal Points"
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,15 +45,7 @@ class PedalPointsVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func menuButtonClicked(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
-    */
-
 }
