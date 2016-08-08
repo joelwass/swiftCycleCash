@@ -26,6 +26,7 @@ class RedeemPointsVC: UIViewController {
 
         self.navigationItem.leftBarButtonItem?.image = UIImage(named: "menu")
         self.tableView.backgroundColor = UIColor.blueColor()
+        self.view.backgroundColor = UIColor.init(hex:0xcef4f5)
         
         self.descriptionLabel.font = UIFont(name: fontOfChoice, size: 14.0)
     }

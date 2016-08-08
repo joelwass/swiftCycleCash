@@ -40,6 +40,8 @@ class HomeVC: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSForegroundColorAttributeName: UIColor.whiteColor(),
              NSFontAttributeName: UIFont(name: fontOfChoice, size: 21)!]
+        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
     }
     
     override func viewWillAppear(animated: Bool) {

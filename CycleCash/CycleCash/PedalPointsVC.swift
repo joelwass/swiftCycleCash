@@ -20,6 +20,7 @@ class PedalPointsVC: UIViewController {
 
         self.navigationItem.leftBarButtonItem?.image = UIImage(named: "menu")
         self.adView.image = UIImage(named: "carShopLogo")
+        self.view.backgroundColor = UIColor.init(hex:0xcef4f5)
         
         self.pointsLabel.font = UIFont(name: fontOfChoice, size: 150.0)
     }

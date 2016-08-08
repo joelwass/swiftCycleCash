@@ -35,6 +35,8 @@ class DashboardVC: UIViewController {
         
         self.adView.image = UIImage(named: "carShopLogo")
         
+        self.view.backgroundColor = UIColor.init(hex:0xcef4f5)
+        
         self.startButton.layer.cornerRadius = 10
         self.startButton.setTitle("Start", forState: .Normal)
         self.startButton.backgroundColor = UIColor.greenColor()
