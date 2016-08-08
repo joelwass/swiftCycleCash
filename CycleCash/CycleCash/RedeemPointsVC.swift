@@ -10,7 +10,7 @@ import UIKit
 
 enum State {
     case categories
-    case automotive
+    case logos
     case carshop
 }
 
@@ -21,6 +21,16 @@ class RedeemPointsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var menuButton: UIButton!
     
     let fontOfChoice = UserSettings.SharedInstance.Font
+    let currentState = State.categories
+    
+    let autoCases = ["Car Shop"]
+    let groceryCases = [""]
+    let restarauntCases = [""]
+    let retailCases = [""]
+    let servicesCases = [""]
+    
+    let logos = [""]
+    let deals = [""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +57,14 @@ class RedeemPointsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        switch currentState {
+        case State.categories:
+            return 5
+        case State.logos:
+            return logos.count
+        case State.carshop:
+            return deals.count
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
