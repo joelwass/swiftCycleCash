@@ -22,6 +22,8 @@
 		EE535EA61D581F5800D386C7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE535EA51D581F5800D386C7 /* TableViewController.swift */; };
 		EE535EA91D58209700D386C7 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE535EA81D58209700D386C7 /* CategoryCell.swift */; };
 		EE535EAB1D5820AE00D386C7 /* LogoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE535EAA1D5820AE00D386C7 /* LogoCell.swift */; };
+		EE79AEF61D5A3E1B00A77225 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79AEF51D5A3E1B00A77225 /* CategoryVC.swift */; };
+		EE79AEF81D5A3E2E00A77225 /* DealsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79AEF71D5A3E2E00A77225 /* DealsVC.swift */; };
 		EEB2F6D71D5191CC008EED3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB2F6D61D5191CC008EED3A /* AppDelegate.swift */; };
 		EEB2F6DC1D5191CC008EED3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEB2F6DA1D5191CC008EED3A /* Main.storyboard */; };
 		EEB2F6DF1D5191CC008EED3A /* CycleCash.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEB2F6DD1D5191CC008EED3A /* CycleCash.xcdatamodeld */; };
@@ -64,6 +66,8 @@
 		EE535EA51D581F5800D386C7 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		EE535EA81D58209700D386C7 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		EE535EAA1D5820AE00D386C7 /* LogoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoCell.swift; sourceTree = "<group>"; };
+		EE79AEF51D5A3E1B00A77225 /* CategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
+		EE79AEF71D5A3E2E00A77225 /* DealsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsVC.swift; sourceTree = "<group>"; };
 		EEB2F6D31D5191CC008EED3A /* CycleCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CycleCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB2F6D61D5191CC008EED3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB2F6DB1D5191CC008EED3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -126,6 +130,16 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		EE79AEF41D5A3DE900A77225 /* Redeem */ = {
+			isa = PBXGroup;
+			children = (
+				EE2712631D524A0E00B58AB6 /* RedeemPointsVC.swift */,
+				EE79AEF51D5A3E1B00A77225 /* CategoryVC.swift */,
+				EE79AEF71D5A3E2E00A77225 /* DealsVC.swift */,
+			);
+			name = Redeem;
+			sourceTree = "<group>";
+		};
 		EEB2F6CA1D5191CC008EED3A = {
 			isa = PBXGroup;
 			children = (
@@ -177,10 +191,10 @@
 		EEB2F7071D519799008EED3A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EE79AEF41D5A3DE900A77225 /* Redeem */,
 				EE535EA71D58208500D386C7 /* Cells */,
 				EE27125F1D5249F900B58AB6 /* HomeVC.swift */,
 				EE2712611D524A0600B58AB6 /* PedalPointsVC.swift */,
-				EE2712631D524A0E00B58AB6 /* RedeemPointsVC.swift */,
 				EE2712651D524A2F00B58AB6 /* DashboardVC.swift */,
 				EE5181C21D56CDFE0039E2AE /* navVC.swift */,
 				EE535EA51D581F5800D386C7 /* TableViewController.swift */,
@@ -349,10 +363,12 @@
 			files = (
 				EE535EAB1D5820AE00D386C7 /* LogoCell.swift in Sources */,
 				EE2712621D524A0600B58AB6 /* PedalPointsVC.swift in Sources */,
+				EE79AEF81D5A3E2E00A77225 /* DealsVC.swift in Sources */,
 				EE2712641D524A0E00B58AB6 /* RedeemPointsVC.swift in Sources */,
 				EE2712661D524A2F00B58AB6 /* DashboardVC.swift in Sources */,
 				EE5181C51D58013A0039E2AE /* GlobalSettings.swift in Sources */,
 				EE5181C31D56CDFE0039E2AE /* navVC.swift in Sources */,
+				EE79AEF61D5A3E1B00A77225 /* CategoryVC.swift in Sources */,
 				EE2712601D5249F900B58AB6 /* HomeVC.swift in Sources */,
 				EEB2F6DF1D5191CC008EED3A /* CycleCash.xcdatamodeld in Sources */,
 				EE535EA61D581F5800D386C7 /* TableViewController.swift in Sources */,
