@@ -8,12 +8,27 @@
 
 import UIKit
 
-class CategoryVC: UIViewController {
+class CategoryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    
+    let fontOfChoice = GlobalSettings.SharedInstance.Font
+    var logos = []
+    var titleText = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.titleLabel.text = titleText
+        self.tableView.backgroundColor = UIColor.init(hex:0xcef4f5)
+        self.view.backgroundColor = UIColor.init(hex:0xcef4f5)
+        self.titleLabel.font = UIFont(name: fontOfChoice, size: 30.0)
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.separatorColor = UIColor.init(hex:0xcef4f5)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +36,35 @@ class CategoryVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func backPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
-    */
-
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return logos.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cellIdentifier = "Logo"
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath:indexPath) as? LogoCell
+        if cell == nil {
+            cell = UITableViewCell(style: .Default, reuseIdentifier: cellIdentifier) as? LogoCell
+        }
+        cell?.imageView?.image = logos[indexPath.row] as? UIImage
+        cell?.backgroundColor = UIColor.cyanColor()
+        return cell!
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 70
+    }
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)  {
+        
+    }
 }

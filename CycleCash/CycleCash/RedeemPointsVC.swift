@@ -14,6 +14,14 @@ enum State {
     case carshop
 }
 
+enum Categories:Int {
+    case Automotive = 0
+    case Groceries
+    case Dining
+    case Retail
+    case Services
+}
+
 class RedeemPointsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
@@ -29,8 +37,6 @@ class RedeemPointsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     var retailCases = [""]
     var servicesCases = [""]
     
-    var logos = [""]
-    var deals = [""]
     let categories = ["Automotive", "Groceries", "Restaurants/Dining", "Retail", "Services"]
     
     override func viewDidLoad() {
@@ -39,11 +45,11 @@ class RedeemPointsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tableView.backgroundColor = UIColor.init(hex:0xcef4f5)
         self.view.backgroundColor = UIColor.init(hex:0xcef4f5)
         self.titleLabel.text = "Redeem Points"
+        self.titleLabel.font = UIFont(name: fontOfChoice, size: 30.0)
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.separatorColor = UIColor.init(hex:0xcef4f5)
-        self.titleLabel.font = UIFont(name: fontOfChoice, size: 30.0)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -65,14 +71,7 @@ class RedeemPointsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch currentState {
-        case State.categories:
-            return categories.count
-        case State.logos:
-            return logos.count
-        case State.carshop:
-            return deals.count
-        }
+        return categories.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -92,7 +91,34 @@ class RedeemPointsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)  {
+        let categoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("CategoryVC") as! CategoryVC
 
+        switch indexPath.row {
+        case Categories.Automotive.rawValue:
+            categoryVC.logos = [UIImage.init(named: "carShopLogo")!]
+            categoryVC.titleText = "Automotive"
+            break
+        case Categories.Groceries.rawValue:
+            categoryVC.logos = [""]
+            categoryVC.titleText = "Groceries"
+            break
+        case Categories.Dining.rawValue:
+            categoryVC.logos = [""]
+            categoryVC.titleText = "Dining"
+            break
+        case Categories.Retail.rawValue:
+            categoryVC.logos = [""]
+            categoryVC.titleText = "Retail"
+            break
+        case Categories.Services.rawValue:
+            categoryVC.logos = [""]
+            categoryVC.titleText = "Services"
+            break
+        default:
+            break
+        }
+        
+        self.navigationController?.pushViewController(categoryVC, animated: true)
     }
 
 }
