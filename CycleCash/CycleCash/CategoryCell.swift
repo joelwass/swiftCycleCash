@@ -14,7 +14,11 @@ class CategoryCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.backgroundColor = UIColor.init(hex:0xcef4f5)
+        self.titleLabel.layer.backgroundColor = UIColor.whiteColor().CGColor
+        self.titleLabel.textColor = UIColor.init(hex:0xcef4f5)
+        self.titleLabel.layer.cornerRadius = 18
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

@@ -148,13 +148,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zp5-C1-EJN">
-                                                    <rect key="frame" x="8" y="8" width="359" height="36"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zp5-C1-EJN">
+                                                    <rect key="frame" x="0.0" y="2" width="375" height="40"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="zp5-C1-EJN" secondAttribute="bottom" constant="2" id="4Vr-9g-ltI"/>
+                                                <constraint firstAttribute="trailing" secondItem="zp5-C1-EJN" secondAttribute="trailing" id="8Jp-t9-Fw4"/>
+                                                <constraint firstAttribute="top" secondItem="zp5-C1-EJN" secondAttribute="top" constant="-2" id="8L3-a4-VR7"/>
+                                                <constraint firstAttribute="leading" secondItem="zp5-C1-EJN" secondAttribute="leading" id="Ls2-if-54c"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="titleLabel" destination="zp5-C1-EJN" id="v1T-Hh-2fT"/>

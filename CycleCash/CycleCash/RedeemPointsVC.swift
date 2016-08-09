@@ -23,14 +23,15 @@ class RedeemPointsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     let fontOfChoice = GlobalSettings.SharedInstance.Font
     let currentState = State.categories
     
-    let autoCases = ["Car Shop"]
-    let groceryCases = [""]
-    let restarauntCases = [""]
-    let retailCases = [""]
-    let servicesCases = [""]
+    var autoCases = ["Car Shop"]
+    var groceryCases = [""]
+    var restarauntCases = [""]
+    var retailCases = [""]
+    var servicesCases = [""]
     
-    let logos = [""]
-    let deals = [""]
+    var logos = [""]
+    var deals = [""]
+    let categories = ["Automotive", "Groceries", "Restaurants/Dining", "Retail", "Services"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,10 @@ class RedeemPointsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.view.backgroundColor = UIColor.init(hex:0xcef4f5)
         self.titleLabel.text = "Redeem Points"
         
-        self.titleLabel.font = UIFont(name: fontOfChoice, size: 21.0)
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.separatorColor = UIColor.init(hex:0xcef4f5)
+        self.titleLabel.font = UIFont(name: fontOfChoice, size: 30.0)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -57,18 +61,18 @@ class RedeemPointsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch currentState {
         case State.categories:
-            return 5
+            return categories.count
         case State.logos:
             return logos.count
         case State.carshop:
             return deals.count
         }
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -77,6 +81,8 @@ class RedeemPointsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         if cell == nil {
             cell = UITableViewCell(style: .Default, reuseIdentifier: cellIdentifier) as? CategoryCell
         }
+        cell?.titleLabel.text = categories[indexPath.row]
+        cell?.titleLabel.font = UIFont(name: fontOfChoice, size: 24.0)
         return cell!
     }
     
