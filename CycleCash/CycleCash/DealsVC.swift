@@ -16,13 +16,16 @@ class DealsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let fontOfChoice = GlobalSettings.SharedInstance.Font
     var deals = [""]
+    var titleText = ""
+    
+    let alertTitle = "Redeem"
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.backgroundColor = UIColor.init(hex:0xcef4f5)
         self.view.backgroundColor = UIColor.init(hex:0xcef4f5)
-        self.titleLabel.text = ""
+        self.titleLabel.text = titleText
         self.titleLabel.font = UIFont(name: fontOfChoice, size: 30.0)
         
         self.tableView.delegate = self
@@ -64,6 +67,44 @@ class DealsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)  {
+        var pedalPointsToSpend = 0
+        var alertMessage = ""
+        var shouldShowAlert = false
         
+        switch indexPath.row {
+        case 0:
+            alertMessage = "You will spend 5 pedal points on this coupon"
+            pedalPointsToSpend = 5
+            shouldShowAlert = true
+            break
+        case 1:
+            break
+        default:
+            break
+        }
+        
+        if (shouldShowAlert) {
+            let alert = UIAlertController(title: self.alertTitle, message: alertMessage, preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "Spend", style: .Default) { _ in
+                dispatch_async(dispatch_get_main_queue(), {
+                    print("Spending \(pedalPointsToSpend)")
+                })
+            }
+            let CancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+            alert.addAction(OKAction)
+            alert.addAction(CancelAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func showConfirmationAlertView() {
+        let alert = UIAlertController(title: "Transaction Confirmed", message: "", preferredStyle: .Alert)
+        let OKAction = UIAlertAction(title: "Ok", style: .Default) { _ in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.navigationController?.popViewControllerAnimated(true)
+            })
+        }
+        alert.addAction(OKAction)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 }

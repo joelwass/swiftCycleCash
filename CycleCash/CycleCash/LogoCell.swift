@@ -14,7 +14,9 @@ class LogoCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.backgroundColor = UIColor.init(hex:0xcef4f5)
+        self.logoImage.layer.cornerRadius = 18 // TODO fix this
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

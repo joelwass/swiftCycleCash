@@ -54,7 +54,7 @@ class CategoryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         if cell == nil {
             cell = UITableViewCell(style: .Default, reuseIdentifier: cellIdentifier) as? LogoCell
         }
-        cell?.imageView?.image = logos[indexPath.row] as? UIImage
+        cell?.logoImage?.image = logos[indexPath.row] as? UIImage
         cell?.backgroundColor = UIColor.cyanColor()
         return cell!
     }
@@ -65,6 +65,16 @@ class CategoryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)  {
+        let dealsVC = self.storyboard?.instantiateViewControllerWithIdentifier("DealsVC") as! DealsVC
         
+        switch indexPath.row {
+        case 0:
+            dealsVC.deals = ["10% Off Overall Car Service"]
+            dealsVC.titleText = "Car Shop"
+            self.navigationController?.pushViewController(dealsVC, animated: true)
+            break
+        default:
+            break
+        }
     }
 }
