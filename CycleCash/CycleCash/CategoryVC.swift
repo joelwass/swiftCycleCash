@@ -17,6 +17,9 @@ class CategoryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let fontOfChoice = GlobalSettings.SharedInstance.Font
     var logos = []
     var titleText = ""
+    
+    var selectedIndexPath:NSIndexPath?
+    var cellSelected = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,15 @@ class CategoryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        if (cellSelected) {
+            self.cellSelected = false
+            self.tableView.deselectRowAtIndexPath(self.selectedIndexPath!, animated: true)
+        }
     }
     
     @IBAction func backPressed(sender: AnyObject) {
@@ -55,7 +67,6 @@ class CategoryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             cell = UITableViewCell(style: .Default, reuseIdentifier: cellIdentifier) as? LogoCell
         }
         cell?.logoImage?.image = logos[indexPath.row] as? UIImage
-        cell?.backgroundColor = UIColor.cyanColor()
         return cell!
     }
     
@@ -76,5 +87,8 @@ class CategoryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         default:
             break
         }
+        
+        self.selectedIndexPath = indexPath
+        self.cellSelected = true
     }
 }

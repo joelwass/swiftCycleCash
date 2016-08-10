@@ -19,6 +19,8 @@ class CategoryCell: UITableViewCell {
         self.titleLabel.layer.backgroundColor = UIColor.whiteColor().CGColor
         self.titleLabel.textColor = UIColor.init(hex:0xcef4f5)
         self.titleLabel.layer.cornerRadius = 18
+        self.titleLabel.clipsToBounds = true
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

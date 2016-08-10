@@ -88,6 +88,7 @@ class DealsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let OKAction = UIAlertAction(title: "Spend", style: .Default) { _ in
                 dispatch_async(dispatch_get_main_queue(), {
                     print("Spending \(pedalPointsToSpend)")
+                    self.showConfirmationAlertView("\(pedalPointsToSpend)")
                 })
             }
             let CancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
@@ -97,11 +98,11 @@ class DealsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func showConfirmationAlertView() {
-        let alert = UIAlertController(title: "Transaction Confirmed", message: "", preferredStyle: .Alert)
+    func showConfirmationAlertView(pointsSpent:String) {
+        let alert = UIAlertController(title: "Transaction Confirmed", message: "\(pointsSpent) Points Spent", preferredStyle: .Alert)
         let OKAction = UIAlertAction(title: "Ok", style: .Default) { _ in
             dispatch_async(dispatch_get_main_queue(), {
-                self.navigationController?.popViewControllerAnimated(true)
+                self.navigationController?.popToRootViewControllerAnimated(true)
             })
         }
         alert.addAction(OKAction)

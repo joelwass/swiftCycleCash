@@ -36,8 +36,10 @@ class RedeemPointsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     var restarauntCases = [""]
     var retailCases = [""]
     var servicesCases = [""]
-    
     let categories = ["Automotive", "Groceries", "Restaurants/Dining", "Retail", "Services"]
+    
+    var selectedIndexPath:NSIndexPath?
+    var cellSelected = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,9 +54,18 @@ class RedeemPointsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tableView.separatorColor = UIColor.init(hex:0xcef4f5)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
         
+        if (cellSelected) {
+            self.cellSelected = false
+             self.tableView.deselectRowAtIndexPath(self.selectedIndexPath!, animated: true)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -117,6 +128,9 @@ class RedeemPointsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         default:
             break
         }
+        
+        self.selectedIndexPath = indexPath
+        self.cellSelected = true
         
         self.navigationController?.pushViewController(categoryVC, animated: true)
     }
