@@ -385,6 +385,7 @@
         <!--DashboardVC-->
         <scene sceneID="cEI-ap-RgO">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nk3-KZ-wnP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="DashboardVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hIJ-ix-aSa" customClass="DashboardVC" customModule="CycleCash" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6vm-DL-FHd"/>
@@ -577,11 +578,11 @@
                         <outlet property="bottomHr" destination="gKX-nl-BZi" id="bVZ-mE-NTG"/>
                         <outlet property="buttonTopHr" destination="IDo-bz-Jl3" id="app-IH-yof"/>
                         <outlet property="distanceBottomHr" destination="tHK-mz-TNF" id="Ybe-B3-kcE"/>
+                        <outlet property="distanceLabel" destination="whh-Ch-EEP" id="wYp-uD-gXx"/>
                         <outlet property="durationBottomLabel" destination="N07-hy-40X" id="cwf-RG-5ob"/>
                         <outlet property="durationLabel" destination="0E6-nW-CZ6" id="Hq1-yq-rsm"/>
                         <outlet property="menuButton" destination="ztQ-99-Gzb" id="zBS-4X-iBw"/>
                         <outlet property="milesBottomlabel" destination="c6J-Ig-taw" id="1kQ-P9-r7b"/>
-                        <outlet property="milesLabel" destination="whh-Ch-EEP" id="rmj-ui-5k1"/>
                         <outlet property="speedBottomLabel" destination="GFD-o7-b3F" id="nc9-vK-tqM"/>
                         <outlet property="speedDurationHr" destination="ysz-ie-1Zc" id="Lbq-QC-uRi"/>
                         <outlet property="speedLabel" destination="cfb-1f-bG0" id="Rjd-iM-vHp"/>
@@ -590,7 +591,6 @@
                         <outlet property="titleLabel" destination="3Ry-ge-nWs" id="x89-UR-7RQ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nk3-KZ-wnP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="835.5" y="387.5"/>
         </scene>
