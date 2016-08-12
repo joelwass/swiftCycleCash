@@ -105,6 +105,7 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
             }
         }
         self.updateDistanceLabel()
+        self.updateSpeedLabel()
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
@@ -122,6 +123,8 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
         self.startButton.backgroundColor = UIColor.greenColor()
         
         locationManager.stopUpdatingLocation()
+        
+        self.presentCongratsAlert()
     }
 
     @IBAction func startPressed(sender: AnyObject) {
@@ -131,6 +134,7 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
         
         self.distanceLabel.text = "0.0"
         self.speedLabel.text = "0.0"
+        self.distance = 0.0
         
         self.startButton.enabled = false
         self.stopButton.enabled = true
@@ -144,7 +148,6 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
     
     func updateRun() {
         self.updateDurationLabel()
-        self.updateSpeedLabel()
     }
     
     func updateDurationLabel() {
@@ -175,16 +178,18 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
     }
     
     func updateSpeedLabel() {
-        
+        if (locations.count != 0) {
+            // convert to mph from m/s, and round to 2 decimal places
+            let currentSpeed = round((locations.last?.speed)! * 223.694 / 100)
+            self.speedLabel.text = "\(currentSpeed)"
+        }
     }
     
     func updateDistanceLabel() {
         if (locations.count == 0) {
             self.distanceLabel.text = "0.0"
         } else {
-            let currentDistanceMeters = locations[0].distanceFromLocation(locations.last!)
-            let currentDistance = round((currentDistanceMeters * 0.000621371)*100 / 100)
-            print(currentDistance)
+            let currentDistance = round((distance * 0.000621371)*100 / 100)
             self.distanceLabel.text = "\(currentDistance)"
         }
     }
@@ -204,5 +209,16 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
     
     func resetSpeed() {
         self.speedLabel.text = "N/a"
+    }
+    
+    func presentCongratsAlert() {
+        // calculate points earned
+        let pointsEarned = Int(distance/5.0)
+        GlobalSettings.SharedInstance.PedalPoints += pointsEarned
+        
+        let alert = UIAlertController(title: "Congratulations!", message: "You earned \(pointsEarned) Pedal Points!", preferredStyle: .Alert)
+        let OKAction = UIAlertAction(title: "Nice", style: .Default, handler: nil)
+        alert.addAction(OKAction)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 }
