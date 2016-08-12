@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class DashboardVC: UIViewController {
 
@@ -30,7 +31,8 @@ class DashboardVC: UIViewController {
     var distance = 0.0
     var duration:NSTimer?
     var startTime:NSTimeInterval?
-    var speed = 0.0
+    var speed:CLLocationSpeed = CLLocationSpeed()
+    let locationManager = CLLocationManager()
 
     let fontOfChoice = GlobalSettings.SharedInstance.Font
     
@@ -67,6 +69,7 @@ class DashboardVC: UIViewController {
         bottomHr.layer.shadowRadius = 1.0
         
         self.resetTimer()
+        self.resetDistance()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -80,9 +83,7 @@ class DashboardVC: UIViewController {
     }
     
     @IBAction func stopPressed(sender: AnyObject) {
-        
         self.resetTimer()
-        
     }
 
     @IBAction func startPressed(sender: AnyObject) {
@@ -121,6 +122,10 @@ class DashboardVC: UIViewController {
         durationLabel.text = "\(strHours):\(strMinutes):\(strSeconds)"
     }
     
+    func updateSpeedLabel() {
+        
+    }
+    
     func resetTimer() {
         self.durationLabel.text = "00:00:00"
         
@@ -128,5 +133,9 @@ class DashboardVC: UIViewController {
         if let timer = duration {
             timer.invalidate()
         }
+    }
+    
+    func resetDistance() {
+        self.speedLabel.text = "\(locationManager.location!.speed)"
     }
 }
