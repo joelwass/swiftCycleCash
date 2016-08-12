@@ -76,6 +76,7 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
         
         self.resetTimer()
         self.resetDistance()
+        self.resetSpeed()
         self.stopButton.enabled = false
         self.stopButton.backgroundColor = UIColor.grayColor()
     }
@@ -113,11 +114,14 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
     @IBAction func stopPressed(sender: AnyObject) {
         self.resetTimer()
         self.resetDistance()
+        self.resetSpeed()
         
         self.startButton.enabled = true
         self.stopButton.enabled = false
         self.stopButton.backgroundColor = UIColor.grayColor()
         self.startButton.backgroundColor = UIColor.greenColor()
+        
+        locationManager.stopUpdatingLocation()
     }
 
     @IBAction func startPressed(sender: AnyObject) {
@@ -178,7 +182,10 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
         if (locations.count == 0) {
             self.distanceLabel.text = "0.0"
         } else {
-            
+            let currentDistanceMeters = locations[0].distanceFromLocation(locations.last!)
+            let currentDistance = round((currentDistanceMeters * 0.000621371)*100 / 100)
+            print(currentDistance)
+            self.distanceLabel.text = "\(currentDistance)"
         }
     }
     
