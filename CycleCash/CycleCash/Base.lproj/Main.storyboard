@@ -385,7 +385,6 @@
         <!--DashboardVC-->
         <scene sceneID="cEI-ap-RgO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nk3-KZ-wnP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="DashboardVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hIJ-ix-aSa" customClass="DashboardVC" customModule="CycleCash" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6vm-DL-FHd"/>
@@ -591,6 +590,7 @@
                         <outlet property="titleLabel" destination="3Ry-ge-nWs" id="x89-UR-7RQ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nk3-KZ-wnP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="835.5" y="387.5"/>
         </scene>
