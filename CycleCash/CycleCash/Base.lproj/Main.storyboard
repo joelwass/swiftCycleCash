@@ -397,7 +397,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0E6-nW-CZ6">
                                 <rect key="frame" x="0.0" y="292" width="185" height="169"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="169" id="V7n-GV-gOp"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="169" id="V7n-GV-gOp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -406,7 +406,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPw-Zm-H9W">
                                 <rect key="frame" x="16" y="481" width="167" height="108"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="108" id="9S3-9Z-N3m"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="108" id="9S3-9Z-N3m"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="Button">
@@ -446,7 +446,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfb-1f-bG0">
                                 <rect key="frame" x="189" y="292" width="186" height="169"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="169" id="x0U-c7-G3T"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="169" id="x0U-c7-G3T"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -455,7 +455,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etU-Rr-074">
                                 <rect key="frame" x="191" y="481" width="168" height="108"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="108" id="VIy-Zx-I11"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="108" id="VIy-Zx-I11"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="Button">
@@ -485,6 +485,9 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="54.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whh-Ch-EEP">
                                 <rect key="frame" x="10" y="72" width="355" height="179"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="179" id="EM2-GI-ZVe"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>

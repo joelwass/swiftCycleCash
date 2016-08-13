@@ -137,8 +137,8 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
         startTime = NSDate.timeIntervalSinceReferenceDate()
         locationManager.startUpdatingLocation()
         
-        self.distanceLabel.text = "0.0"
-        self.speedLabel.text = "0.0"
+        self.distanceLabel.text = "0.0 Miles"
+        self.speedLabel.text = "0.0 MPH"
         self.distance = 0.0
         
         self.startButton.enabled = false
@@ -185,7 +185,7 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
     func updateSpeedLabel() {
         if (locations.count != 0) {
             // convert to mph from m/s, and round to 2 decimal places
-            let currentSpeed = round((locations.last?.speed)! * 223.694 / 100)
+            let currentSpeed = round(locations.last!.speed * 223.694)/100
             self.speed = currentSpeed
             self.speedLabel.text = "\(currentSpeed) MPH"
         }
@@ -222,12 +222,13 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
         let pointsEarned = Int((round((distance * 0.000621371)*100) / 100)/5.0)
         GlobalSettings.SharedInstance.PedalPoints += pointsEarned
         
-        if (pointsEarned > 0) {
-            let alert = UIAlertController(title: "Congratulations!", message: "You earned \(pointsEarned) Pedal Points!", preferredStyle: .Alert)
+
+        dispatch_async(dispatch_get_main_queue(), { [weak self] () -> () in
+            let alert = UIAlertController(title: "Great Work", message: "You earned \(pointsEarned) Pedal Points!", preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "Nice", style: .Default, handler: nil)
             alert.addAction(OKAction)
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
+            self?.presentViewController(alert, animated: true, completion: nil)
+        })
     }
     
     func reportUserIsGoingTooFast() {
@@ -235,7 +236,7 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
             self.presentedWarning = true
             
             dispatch_async(dispatch_get_main_queue(), { [weak self] () -> () in
-                let alert = UIAlertController(title: "Woah There!", message: "We clocked you at \(self?.speed), which is awesome, but it's a little too fast! Speed over 24 mph won't count towards Pedal Points", preferredStyle: .Alert)
+                let alert = UIAlertController(title: "Woah There!", message: "We clocked you at \(self!.speed), which is awesome, but it's a little too fast! Speed over 24 mph won't count towards Pedal Points", preferredStyle: .Alert)
                 let OKAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
                 alert.addAction(OKAction)
                 self?.presentViewController(alert, animated: true, completion: nil)
