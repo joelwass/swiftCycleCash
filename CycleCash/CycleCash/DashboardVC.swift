@@ -34,6 +34,7 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
     var speed:CLLocationSpeed = CLLocationSpeed()
     let locationManager = CLLocationManager()
     lazy var locations = [CLLocation]()
+    var presentedWarning = false
 
     let fontOfChoice = GlobalSettings.SharedInstance.Font
     
@@ -97,7 +98,11 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
             if location.horizontalAccuracy < 20 {
                 //update distance
                 if self.locations.count > 0 {
-                    distance += location.distanceFromLocation(self.locations.last!)
+                    if (self.speed < 24.0) {
+                        distance += location.distanceFromLocation(self.locations.last!)
+                    } else {
+                        self.reportUserIsGoingTooFast()
+                    }
                 }
                 
                 //save location
@@ -181,7 +186,8 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
         if (locations.count != 0) {
             // convert to mph from m/s, and round to 2 decimal places
             let currentSpeed = round((locations.last?.speed)! * 223.694 / 100)
-            self.speedLabel.text = "\(currentSpeed)"
+            self.speed = currentSpeed
+            self.speedLabel.text = "\(currentSpeed) MPH"
         }
     }
     
@@ -189,8 +195,8 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
         if (locations.count == 0) {
             self.distanceLabel.text = "0.0"
         } else {
-            let currentDistance = round((distance * 0.000621371)*100 / 100)
-            self.distanceLabel.text = "\(currentDistance)"
+            let currentDistance = round((distance * 0.000621371)*100) / 100
+            self.distanceLabel.text = "\(currentDistance) Miles"
         }
     }
     
@@ -213,12 +219,27 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
     
     func presentCongratsAlert() {
         // calculate points earned
-        let pointsEarned = Int(distance/5.0)
+        let pointsEarned = Int((round((distance * 0.000621371)*100) / 100)/5.0)
         GlobalSettings.SharedInstance.PedalPoints += pointsEarned
         
-        let alert = UIAlertController(title: "Congratulations!", message: "You earned \(pointsEarned) Pedal Points!", preferredStyle: .Alert)
-        let OKAction = UIAlertAction(title: "Nice", style: .Default, handler: nil)
-        alert.addAction(OKAction)
-        self.presentViewController(alert, animated: true, completion: nil)
+        if (pointsEarned > 0) {
+            let alert = UIAlertController(title: "Congratulations!", message: "You earned \(pointsEarned) Pedal Points!", preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "Nice", style: .Default, handler: nil)
+            alert.addAction(OKAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func reportUserIsGoingTooFast() {
+        if (!self.presentedWarning) {
+            self.presentedWarning = true
+            
+            dispatch_async(dispatch_get_main_queue(), { [weak self] () -> () in
+                let alert = UIAlertController(title: "Woah There!", message: "We clocked you at \(self?.speed), which is awesome, but it's a little too fast! Speed over 24 mph won't count towards Pedal Points", preferredStyle: .Alert)
+                let OKAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+                alert.addAction(OKAction)
+                self?.presentViewController(alert, animated: true, completion: nil)
+            })
+        }
     }
 }
