@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +18,58 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sponsored by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCn-xX-J98">
+                                <rect key="frame" x="20" y="170.5" width="106" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Located at" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPU-07-ypM">
+                                <rect key="frame" x="20" y="408" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="234 W 1st N, Rexburg, ID 83440" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpw-bh-srQ">
+                                <rect key="frame" x="20" y="437" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(208) 356-6767" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3b-hc-h95">
+                                <rect key="frame" x="20" y="466" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carShopEmptyBGLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Hbq-JE-QOG">
+                                <rect key="frame" x="20" y="199" width="560" height="201"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Hbq-JE-QOG" secondAttribute="height" multiplier="560:201" id="JyR-1S-Wy1"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80784313725490198" green="0.95686274509803915" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cpw-bh-srQ" secondAttribute="trailing" id="2aO-Oj-rrx"/>
+                            <constraint firstItem="Hbq-JE-QOG" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4rc-RY-UXH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="P3b-hc-h95" secondAttribute="trailing" id="7BT-BD-Obu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pPU-07-ypM" secondAttribute="trailing" id="8FX-85-Ind"/>
+                            <constraint firstItem="P3b-hc-h95" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Guy-7b-uue"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="P3b-hc-h95" secondAttribute="leading" id="IQy-nl-VRf"/>
+                            <constraint firstItem="jCn-xX-J98" firstAttribute="leading" secondItem="Hbq-JE-QOG" secondAttribute="leading" id="K6K-cr-Rm4"/>
+                            <constraint firstItem="Hbq-JE-QOG" firstAttribute="top" secondItem="jCn-xX-J98" secondAttribute="bottom" constant="8" id="PSL-CO-yp8"/>
+                            <constraint firstItem="Hbq-JE-QOG" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Q5h-iz-bQM"/>
+                            <constraint firstItem="Hbq-JE-QOG" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="QS2-wc-mwR"/>
+                            <constraint firstItem="pPU-07-ypM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ZWv-VP-CZw"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="pPU-07-ypM" secondAttribute="leading" id="e7E-Vr-O5j"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Cpw-bh-srQ" secondAttribute="leading" id="eto-gU-ep9"/>
+                            <constraint firstItem="P3b-hc-h95" firstAttribute="top" secondItem="Cpw-bh-srQ" secondAttribute="bottom" constant="8" id="fac-kN-rlj"/>
+                            <constraint firstItem="Cpw-bh-srQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="huB-0e-OAF"/>
+                            <constraint firstItem="pPU-07-ypM" firstAttribute="top" secondItem="Hbq-JE-QOG" secondAttribute="bottom" constant="8" id="nUF-L4-KnI"/>
+                            <constraint firstItem="Cpw-bh-srQ" firstAttribute="top" secondItem="pPU-07-ypM" secondAttribute="bottom" constant="8" id="nhN-eN-tuM"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +77,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="carShopEmptyBGLogo" width="624" height="201"/>
+    </resources>
 </document>
