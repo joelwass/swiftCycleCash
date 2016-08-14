@@ -83,7 +83,9 @@ class DealsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             break
         }
         
-        if (shouldShowAlert) {
+        let hasEnoughPoints = (pedalPointsToSpend > GlobalSettings.SharedInstance.PedalPoints)
+        
+        if (shouldShowAlert && hasEnoughPoints) {
             let alert = UIAlertController(title: self.alertTitle, message: alertMessage, preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "Spend", style: .Default) { _ in
                 dispatch_async(dispatch_get_main_queue(), {
@@ -94,6 +96,11 @@ class DealsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let CancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
             alert.addAction(OKAction)
             alert.addAction(CancelAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else if (shouldShowAlert) {
+            let alert = UIAlertController(title: self.alertTitle, message: "It looks like you don't have enough Pedal Points to redeem this coupon. Keep cycling and try again later!", preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+            alert.addAction(OKAction)
             self.presentViewController(alert, animated: true, completion: nil)
         }
     }
