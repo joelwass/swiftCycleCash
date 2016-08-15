@@ -110,19 +110,19 @@ class RedeemPointsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             categoryVC.titleText = "Automotive"
             break
         case Categories.Groceries.rawValue:
-            categoryVC.logos = [""]
+            categoryVC.logos = []
             categoryVC.titleText = "Groceries"
             break
         case Categories.Dining.rawValue:
-            categoryVC.logos = [""]
+            categoryVC.logos = []
             categoryVC.titleText = "Dining"
             break
         case Categories.Retail.rawValue:
-            categoryVC.logos = [""]
+            categoryVC.logos = []
             categoryVC.titleText = "Retail"
             break
         case Categories.Services.rawValue:
-            categoryVC.logos = [""]
+            categoryVC.logos = []
             categoryVC.titleText = "Services"
             break
         default:
