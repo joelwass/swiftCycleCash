@@ -32,6 +32,10 @@ class PedalPointsVC: UIViewController {
         bottomHr.layer.shadowOffset = CGSizeMake(0, 1)
         bottomHr.layer.shadowOpacity = 0.5
         bottomHr.layer.shadowRadius = 1.0
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.adTapped))
+        adView.userInteractionEnabled = true
+        adView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -47,5 +51,9 @@ class PedalPointsVC: UIViewController {
     
     @IBAction func menuButtonClicked(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func adTapped() {
+        UIApplication.sharedApplication().openURL(NSURL(string: "http://www.rexburgcarshop.com/")!)
     }
 }

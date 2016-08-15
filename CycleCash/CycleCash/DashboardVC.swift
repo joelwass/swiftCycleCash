@@ -80,6 +80,10 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
         self.resetSpeed()
         self.stopButton.enabled = false
         self.stopButton.backgroundColor = UIColor.grayColor()
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.adTapped))
+        adView.userInteractionEnabled = true
+        adView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -219,7 +223,7 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
     
     func presentCongratsAlert() {
         // calculate points earned
-        let pointsEarned = Int((round((distance * 0.000621371)*100) / 100)/5.0)
+        let pointsEarned = Int(round((distance * 0.000621371)*100) / 100)
         GlobalSettings.SharedInstance.PedalPoints += pointsEarned
         
 
@@ -242,5 +246,9 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
                 self?.presentViewController(alert, animated: true, completion: nil)
             })
         }
+    }
+    
+    func adTapped() {
+        UIApplication.sharedApplication().openURL(NSURL(string: "http://www.rexburgcarshop.com/")!)
     }
 }

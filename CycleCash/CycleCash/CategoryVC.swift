@@ -81,6 +81,7 @@ class CategoryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         switch indexPath.row {
         case 0:
             dealsVC.deals = ["10% Off Overall Car Service"]
+            dealsVC.prices = ["25"]
             dealsVC.titleText = "Car Shop"
             self.navigationController?.pushViewController(dealsVC, animated: true)
             break

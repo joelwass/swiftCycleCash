@@ -16,6 +16,7 @@ class DealsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let fontOfChoice = GlobalSettings.SharedInstance.Font
     var deals = [""]
+    var prices = [""]
     var titleText = ""
     
     let alertTitle = "Redeem"
@@ -73,8 +74,8 @@ class DealsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            alertMessage = "You will spend 5 pedal points on this coupon"
-            pedalPointsToSpend = 5
+            alertMessage = "You will spend \(prices[indexPath.row]) pedal points on this coupon"
+            pedalPointsToSpend = Int(prices[indexPath.row])!
             shouldShowAlert = true
             break
         case 1:

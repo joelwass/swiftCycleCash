@@ -11,6 +11,7 @@
 		EE2712621D524A0600B58AB6 /* PedalPointsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2712611D524A0600B58AB6 /* PedalPointsVC.swift */; };
 		EE2712641D524A0E00B58AB6 /* RedeemPointsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2712631D524A0E00B58AB6 /* RedeemPointsVC.swift */; };
 		EE2712661D524A2F00B58AB6 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2712651D524A2F00B58AB6 /* DashboardVC.swift */; };
+		EE3382DB1D624EDE009BB784 /* LaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3382DA1D624EDE009BB784 /* LaunchVC.swift */; };
 		EE5181C31D56CDFE0039E2AE /* navVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5181C21D56CDFE0039E2AE /* navVC.swift */; };
 		EE5181C51D58013A0039E2AE /* GlobalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5181C41D58013A0039E2AE /* GlobalSettings.swift */; };
 		EE535E9D1D5812F300D386C7 /* BoosterNextFY-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE535E971D5812F300D386C7 /* BoosterNextFY-Black.otf */; };
@@ -55,6 +56,7 @@
 		EE2712611D524A0600B58AB6 /* PedalPointsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedalPointsVC.swift; sourceTree = "<group>"; };
 		EE2712631D524A0E00B58AB6 /* RedeemPointsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemPointsVC.swift; sourceTree = "<group>"; };
 		EE2712651D524A2F00B58AB6 /* DashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
+		EE3382DA1D624EDE009BB784 /* LaunchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchVC.swift; sourceTree = "<group>"; };
 		EE5181C21D56CDFE0039E2AE /* navVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = navVC.swift; sourceTree = "<group>"; };
 		EE5181C41D58013A0039E2AE /* GlobalSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSettings.swift; sourceTree = "<group>"; };
 		EE535E971D5812F300D386C7 /* BoosterNextFY-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BoosterNextFY-Black.otf"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				EE2712651D524A2F00B58AB6 /* DashboardVC.swift */,
 				EE5181C21D56CDFE0039E2AE /* navVC.swift */,
 				EE535EA51D581F5800D386C7 /* TableViewController.swift */,
+				EE3382DA1D624EDE009BB784 /* LaunchVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				EE535EAB1D5820AE00D386C7 /* LogoCell.swift in Sources */,
 				EE2712621D524A0600B58AB6 /* PedalPointsVC.swift in Sources */,
 				EE79AEF81D5A3E2E00A77225 /* DealsVC.swift in Sources */,
+				EE3382DB1D624EDE009BB784 /* LaunchVC.swift in Sources */,
 				EE2712641D524A0E00B58AB6 /* RedeemPointsVC.swift in Sources */,
 				EE2712661D524A2F00B58AB6 /* DashboardVC.swift in Sources */,
 				EE5181C51D58013A0039E2AE /* GlobalSettings.swift in Sources */,

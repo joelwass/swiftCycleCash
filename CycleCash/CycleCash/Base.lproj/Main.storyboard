@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3ql-w2-l7X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dzb-is-v8R">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,6 +7,73 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--LaunchVC-->
+        <scene sceneID="Ew8-6d-xOq">
+            <objects>
+                <viewController storyboardIdentifier="LaunchVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dzb-is-v8R" customClass="LaunchVC" customModule="CycleCash" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yWN-ka-9gT"/>
+                        <viewControllerLayoutGuide type="bottom" id="09U-Kg-XMd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dzX-t7-qgV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sponsored by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Oy-yf-nYq">
+                                <rect key="frame" x="16" y="243" width="106" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="234 W 1st N, Rexburg, ID 83440" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvL-WT-Xg4">
+                                <rect key="frame" x="16" y="432" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(208) 356-6767" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XqW-Ty-GRx">
+                                <rect key="frame" x="16" y="461" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carShopEmptyBGLogo" translatesAutoresizingMaskIntoConstraints="NO" id="r1U-HP-awX">
+                                <rect key="frame" x="16" y="272" width="343" height="123"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="r1U-HP-awX" secondAttribute="height" multiplier="560:201" id="HFe-8y-HhO"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Located at" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lC-Ll-tFS">
+                                <rect key="frame" x="16" y="403" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80784313730000001" green="0.95686274510000002" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="XqW-Ty-GRx" firstAttribute="leading" secondItem="dzX-t7-qgV" secondAttribute="leadingMargin" id="6YR-qN-QI8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XqW-Ty-GRx" secondAttribute="trailing" id="9Xv-vD-Ush"/>
+                            <constraint firstItem="XqW-Ty-GRx" firstAttribute="top" secondItem="KvL-WT-Xg4" secondAttribute="bottom" constant="8" id="KKQ-L1-dxI"/>
+                            <constraint firstItem="4lC-Ll-tFS" firstAttribute="top" secondItem="r1U-HP-awX" secondAttribute="bottom" constant="8" id="Tft-9B-9hm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KvL-WT-Xg4" secondAttribute="trailing" id="YiP-FA-bCN"/>
+                            <constraint firstItem="r1U-HP-awX" firstAttribute="top" secondItem="5Oy-yf-nYq" secondAttribute="bottom" constant="8" id="ZIj-nn-W7L"/>
+                            <constraint firstItem="r1U-HP-awX" firstAttribute="centerX" secondItem="dzX-t7-qgV" secondAttribute="centerX" id="akU-0a-KuY"/>
+                            <constraint firstItem="5Oy-yf-nYq" firstAttribute="leading" secondItem="r1U-HP-awX" secondAttribute="leading" id="bqq-NB-d9k"/>
+                            <constraint firstItem="r1U-HP-awX" firstAttribute="leading" secondItem="dzX-t7-qgV" secondAttribute="leadingMargin" id="bsr-6I-5xN"/>
+                            <constraint firstItem="KvL-WT-Xg4" firstAttribute="top" secondItem="4lC-Ll-tFS" secondAttribute="bottom" constant="8" id="f0L-U7-8OB"/>
+                            <constraint firstItem="r1U-HP-awX" firstAttribute="centerY" secondItem="dzX-t7-qgV" secondAttribute="centerY" id="gQC-bJ-gWU"/>
+                            <constraint firstItem="4lC-Ll-tFS" firstAttribute="leading" secondItem="dzX-t7-qgV" secondAttribute="leadingMargin" id="tXb-3S-dTu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4lC-Ll-tFS" secondAttribute="trailing" id="umu-Fq-IV8"/>
+                            <constraint firstItem="KvL-WT-Xg4" firstAttribute="leading" secondItem="dzX-t7-qgV" secondAttribute="leadingMargin" id="v2c-fA-ium"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="scp-QC-Wfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-681.5" y="387.5"/>
+        </scene>
         <!--NavVC-->
         <scene sceneID="vtT-dR-PAB">
             <objects>
@@ -465,20 +532,20 @@
                                     <action selector="startPressed:" destination="hIJ-ix-aSa" eventType="touchUpInside" id="n4K-hw-6xF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N07-hy-40X">
-                                <rect key="frame" x="64" y="452" width="56" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N07-hy-40X">
+                                <rect key="frame" x="59.5" y="448.5" width="65.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Distance (miles)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6J-Ig-taw">
-                                <rect key="frame" x="136" y="259" width="104" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance (miles)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6J-Ig-taw">
+                                <rect key="frame" x="126.5" y="255.5" width="123" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Speed (mph)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFD-o7-b3F">
-                                <rect key="frame" x="240" y="452" width="84" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed (mph)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFD-o7-b3F">
+                                <rect key="frame" x="232.5" y="448.5" width="99" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -682,6 +749,7 @@
     </scenes>
     <resources>
         <image name="backChevron" width="14" height="23"/>
+        <image name="carShopEmptyBGLogo" width="624" height="201"/>
         <image name="menu" width="22" height="22"/>
     </resources>
 </document>

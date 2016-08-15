@@ -67,4 +67,6 @@ public class GlobalSettings {
     }
     
     public var LogoDictionary:[String: String] = ["":""]
+    
+    public var onboarded = false
 }
