@@ -43,6 +43,14 @@ class HomeVC: UIViewController {
         
         self.navigationController?.navigationBarHidden = true
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        
+        if (!GlobalSettings.SharedInstance.onboarded) {
+            self.presentOnboardingView()
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,6 +70,16 @@ class HomeVC: UIViewController {
     @IBAction func spendPointsPressed(sender: AnyObject) {
         let redeemPointsVC = self.storyboard?.instantiateViewControllerWithIdentifier("RedeemPointsVC") as! RedeemPointsVC
         self.navigationController?.pushViewController(redeemPointsVC, animated: true)
+    }
+    
+    func presentOnboardingView() {
+        dispatch_async(dispatch_get_main_queue(), { [weak self] () -> () in
+            GlobalSettings.SharedInstance.onboarded = true
+            let alert = UIAlertController(title: "Welcome!", message: "Pedal Points is all about rewarding bikers for biking. Once you start tracking your bike rides, for each mile you ride you'll get one pedal point, which you can use to redeem great deals from local vendors in the area! Enjoy!", preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+            alert.addAction(OKAction)
+            self?.presentViewController(alert, animated: true, completion: nil)
+        })
     }
 }
 
