@@ -91,6 +91,7 @@ class DealsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let OKAction = UIAlertAction(title: "Spend", style: .Default) { _ in
                 dispatch_async(dispatch_get_main_queue(), {
                     print("Spending \(pedalPointsToSpend)")
+                    GlobalSettings.SharedInstance.PedalPoints = GlobalSettings.SharedInstance.PedalPoints - pedalPointsToSpend
                     self.showConfirmationAlertView("\(pedalPointsToSpend)")
                 })
             }
