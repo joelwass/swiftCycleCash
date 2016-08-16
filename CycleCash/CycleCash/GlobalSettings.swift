@@ -17,6 +17,7 @@ public class GlobalSettings {
         static let Distance = "Distance"
         static let Time = "Time"
         static let Font = "BoosterNextFY-Medium"
+        static let Onboarded = "Onboarded"
     }
     
     public class var SharedInstance: GlobalSettings {
@@ -68,5 +69,12 @@ public class GlobalSettings {
     
     public var LogoDictionary:[String: String] = ["":""]
     
-    public var onboarded = false
+    public var Onboarded:Bool {
+        get {
+            return NSUserDefaults.standardUserDefaults().boolForKey(Constants.Onboarded)
+        }
+        set (newOnboarded) {
+            NSUserDefaults.standardUserDefaults().setBool(newOnboarded, forKey: Constants.Onboarded)
+        }
+    }
 }

@@ -47,7 +47,7 @@ class HomeVC: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-        if (!GlobalSettings.SharedInstance.onboarded) {
+        if (GlobalSettings.SharedInstance.Onboarded == false) {
             self.presentOnboardingView()
         }
     }
@@ -74,7 +74,7 @@ class HomeVC: UIViewController {
     
     func presentOnboardingView() {
         dispatch_async(dispatch_get_main_queue(), { [weak self] () -> () in
-            GlobalSettings.SharedInstance.onboarded = true
+            GlobalSettings.SharedInstance.Onboarded = true
             let alert = UIAlertController(title: "Welcome!", message: "Pedal Points is all about rewarding bikers for biking. Once you start tracking your bike rides, for each mile you ride you'll get one pedal point, which you can use to redeem great deals from local vendors in the area! Enjoy!", preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
             alert.addAction(OKAction)

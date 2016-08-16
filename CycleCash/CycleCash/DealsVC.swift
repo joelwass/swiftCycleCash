@@ -84,13 +84,12 @@ class DealsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             break
         }
         
-        let hasEnoughPoints = (pedalPointsToSpend > GlobalSettings.SharedInstance.PedalPoints)
+        let hasEnoughPoints = (pedalPointsToSpend < GlobalSettings.SharedInstance.PedalPoints)
         
         if (shouldShowAlert && hasEnoughPoints) {
             let alert = UIAlertController(title: self.alertTitle, message: alertMessage, preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "Spend", style: .Default) { _ in
                 dispatch_async(dispatch_get_main_queue(), {
-                    print("Spending \(pedalPointsToSpend)")
                     GlobalSettings.SharedInstance.PedalPoints = GlobalSettings.SharedInstance.PedalPoints - pedalPointsToSpend
                     self.showConfirmationAlertView("\(pedalPointsToSpend)")
                 })
