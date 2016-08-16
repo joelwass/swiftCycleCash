@@ -97,7 +97,7 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("locations \(locations)")
+        
         for location in locations {
             if location.horizontalAccuracy < 20 {
                 //update distance
@@ -166,8 +166,8 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
         var elapsedTime: NSTimeInterval = currentTime - startTime!
         
         //calculate the hours in elapsted time.
-        let hours = UInt8(elapsedTime / 360.0)
-        elapsedTime -= (NSTimeInterval(hours) * 360)
+        let hours = UInt8(elapsedTime / 3600.0)
+        elapsedTime -= (NSTimeInterval(hours) * 3600)
         
         //calculate the minutes in elapsed time.
         let minutes = UInt8(elapsedTime / 60.0)
