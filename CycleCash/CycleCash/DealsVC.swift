@@ -84,7 +84,7 @@ class DealsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             break
         }
         
-        let hasEnoughPoints = (pedalPointsToSpend < GlobalSettings.SharedInstance.PedalPoints)
+        let hasEnoughPoints = (pedalPointsToSpend <= GlobalSettings.SharedInstance.PedalPoints)
         
         if (shouldShowAlert && hasEnoughPoints) {
             let alert = UIAlertController(title: self.alertTitle, message: alertMessage, preferredStyle: .Alert)
