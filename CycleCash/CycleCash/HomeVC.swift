@@ -36,6 +36,7 @@ class HomeVC: UIViewController {
         self.trackYourMilesButton.titleLabel?.font = UIFont(name: fontOfChoice, size: 20.0)
         self.pedalPointsButton.titleLabel?.font = UIFont(name: fontOfChoice, size: 20.0)
         self.spendPointsButton.titleLabel?.font = UIFont(name: fontOfChoice, size: 20.0)
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -75,6 +76,7 @@ class HomeVC: UIViewController {
     func presentOnboardingView() {
         dispatch_async(dispatch_get_main_queue(), { [weak self] () -> () in
             GlobalSettings.SharedInstance.Onboarded = true
+            GlobalSettings.SharedInstance.PedalPoints = 25
             let alert = UIAlertController(title: "Welcome!", message: "Pedal Points is all about rewarding bikers for biking. Once you start tracking your bike rides, for each mile you ride you'll get one pedal point, which you can use to redeem great deals from local vendors in the area! Enjoy!", preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
             alert.addAction(OKAction)

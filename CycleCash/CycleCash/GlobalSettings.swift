@@ -26,9 +26,7 @@ public class GlobalSettings {
     
     public var PedalPoints:Int {
         get {
-            if (NSUserDefaults.standardUserDefaults().integerForKey(Constants.PedalPoints) == 0) {
-                return 25
-            } else { return NSUserDefaults.standardUserDefaults().integerForKey(Constants.PedalPoints) }
+            return NSUserDefaults.standardUserDefaults().integerForKey(Constants.PedalPoints) 
         }
         set (newPedalPoints) {
             NSUserDefaults.standardUserDefaults().setInteger(newPedalPoints, forKey: Constants.PedalPoints)
