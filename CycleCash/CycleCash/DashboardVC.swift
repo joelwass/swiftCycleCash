@@ -215,6 +215,7 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
     
     func resetDistance() {
         self.distanceLabel.text = "N/a"
+        self.distance = 0.0
     }
     
     func resetSpeed() {
