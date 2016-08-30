@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 var sequelize = require('sequelize');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
 
@@ -63,8 +62,9 @@ if (process.env.NODE_ENV != undefined && process.env.NODE_ENV.indexOf('local') !
   // serve swagger
   app.get('/swagger.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
-  res.send(swaggerSpec);
-});
+    res.send(swaggerSpec);
+  });
+}
 
 // error handlers
 
