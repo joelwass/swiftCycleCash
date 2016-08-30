@@ -26,7 +26,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // routes
 app.use('/', routes);
-app.use('/users', users);
 
 // db setup
 
