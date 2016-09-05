@@ -23,6 +23,7 @@
 		EE535EA61D581F5800D386C7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE535EA51D581F5800D386C7 /* TableViewController.swift */; };
 		EE535EA91D58209700D386C7 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE535EA81D58209700D386C7 /* CategoryCell.swift */; };
 		EE535EAB1D5820AE00D386C7 /* LogoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE535EAA1D5820AE00D386C7 /* LogoCell.swift */; };
+		EE77CABB1D7DFD8E0096BAAC /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77CABA1D7DFD8E0096BAAC /* LoginVC.swift */; };
 		EE79AEF61D5A3E1B00A77225 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79AEF51D5A3E1B00A77225 /* CategoryVC.swift */; };
 		EE79AEF81D5A3E2E00A77225 /* DealsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79AEF71D5A3E2E00A77225 /* DealsVC.swift */; };
 		EEB2F6D71D5191CC008EED3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB2F6D61D5191CC008EED3A /* AppDelegate.swift */; };
@@ -68,6 +69,7 @@
 		EE535EA51D581F5800D386C7 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		EE535EA81D58209700D386C7 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		EE535EAA1D5820AE00D386C7 /* LogoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoCell.swift; sourceTree = "<group>"; };
+		EE77CABA1D7DFD8E0096BAAC /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		EE79AEF51D5A3E1B00A77225 /* CategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
 		EE79AEF71D5A3E2E00A77225 /* DealsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsVC.swift; sourceTree = "<group>"; };
 		EEB2F6D31D5191CC008EED3A /* CycleCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CycleCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,6 +203,7 @@
 				EE5181C21D56CDFE0039E2AE /* navVC.swift */,
 				EE535EA51D581F5800D386C7 /* TableViewController.swift */,
 				EE3382DA1D624EDE009BB784 /* LaunchVC.swift */,
+				EE77CABA1D7DFD8E0096BAAC /* LoginVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				EE535EA61D581F5800D386C7 /* TableViewController.swift in Sources */,
 				EEB2F6D71D5191CC008EED3A /* AppDelegate.swift in Sources */,
 				EE535EA91D58209700D386C7 /* CategoryCell.swift in Sources */,
+				EE77CABB1D7DFD8E0096BAAC /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

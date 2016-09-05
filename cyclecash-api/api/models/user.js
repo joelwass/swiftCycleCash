@@ -189,16 +189,6 @@ module.exports = function (sequelize, DataTypes) {
         });
       },
 
-      validatePassword: function (password) {
-        var regex = /^(?=.*?[A-Z]).{6,}$/;
-        if (password == '') {
-          return false;
-        } else if (!regex.test(password)) {
-          return false;
-        } else {
-          return true;
-        }
-      },
     },
     instanceMethods: {
 
@@ -216,12 +206,12 @@ module.exports = function (sequelize, DataTypes) {
     if (!user.email || !user.password) {
       throw new MyError(helper.strings.InvalidParameters);
     }
-
     user.email = user.email.toLowerCase();
   });
 
   User.beforeCreate(function (user, options, next) {
 
+    // encrypt password
     bcrypt.hash(user.password, 10, function (err, encryptedPassword) {
       if (err) return next(err);
       user.password = encryptedPassword;
@@ -235,6 +225,7 @@ module.exports = function (sequelize, DataTypes) {
       return next();
     }
 
+    // encrypt password
     bcrypt.hash(user.password, 10, function (err, encryptedPassword) {
       if (err) return next(err);
       user.password = encryptedPassword;
