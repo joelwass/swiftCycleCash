@@ -4,13 +4,11 @@
 
 var express = require('express');
 var router = express.Router();
-var middleware = require('./middleware');
 var controllers = require('../api/controllers');
 
 router.route('/api/v1/users/')
     .post(controllers.user.createUser)
-    .put(middleware.requireAuthentication, controllers.user.updateUser)
-    .get(middleware.requireAuthentication, controllers.user.retrieveUser)
+    .put(controllers.user.updateUser)
 
 router.route('/api/v1/users/login/')
     .post(controllers.user.loginUser);

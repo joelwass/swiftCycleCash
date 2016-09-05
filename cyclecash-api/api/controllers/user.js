@@ -62,17 +62,17 @@ module.exports = {
                 var created = result[1];
                 if (created) {
                     user = result[0];
-                    return models.User.createAndSaveRefreshToken(user.id, models);
+                    return user;
                 } else {
                     throw new MyError(helper.strings.EmailAlreadyExists);
                 }
             })
-            .then(function (refreshToken) {
+            .then(function (localUser) {
                 const json = { success: true,
-                    refreshToken: refreshToken.token,
                     user: user.toJSON(),
-                    message: helper.strings.UserCreationSuccess, };
-                return res.header('Auth', models.User.createAccessToken(user.id)).json(json);
+                    message: helper.strings.UserCreationSuccess,
+                };
+                return res.json(json);
             })
             .catch(function (err) {
                 if (err.name && err.name === 'MyError') {
@@ -129,12 +129,6 @@ module.exports = {
      *     produces:
      *       - application/json
      *     parameters:
-     *     - name: Auth
-     *       in: header
-     *       description: jwt
-     *       required: true
-     *       type: string
-     *       format: string
      *     - name: user
      *       description: Input parameters needed for updating a user
      *       in: body
@@ -220,11 +214,10 @@ module.exports = {
      *       200:
      *         description: Signs in a user
      */
-    
+
     loginUser: function (req, res) {
-        var user;
-        var refreshToken;
-        var body = _.pick(req.body, 'email', 'password');
+        var user,
+            body = _.pick(req.body, 'email', 'password');
 
         if (_.keys(body).length != 2) {
             return res.status(400).json({ success: false, message: helper.strings.InvalidParameters });
@@ -233,16 +226,12 @@ module.exports = {
         models.User.authenticate(body)
             .then(function (localUser) {
                 user = localUser;
-                return models.User.createAndSaveRefreshToken(user.id, models);
+                return user;
             })
-            .then(function (localRefreshToken) {
-                refreshToken = localRefreshToken;
-                const accessToken = models.User.createAccessToken(user.id);
+            .then(function (localUser) {
 
-                return res.header('Auth', accessToken)
-                    .json({ success: true,
+                return res.json({ success: true,
                         user: user.toJSON(),
-                        refreshToken: refreshToken.token,
                         message: helper.strings.LoginSuccess, });
             })
             .catch(function (err) {

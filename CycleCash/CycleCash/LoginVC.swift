@@ -55,10 +55,10 @@ class LoginVC: UIViewController {
         
         switch currentState {
         case .Login:
-            
+            API.sharedInstance().logIn(emailTF.text!, password: passwordTF.text!)
             break
         case .Signup:
-            
+            API.sharedInstance().signUp(emailTF.text!, password: passwordTF.text!)
             break
         }
     }

@@ -23,11 +23,11 @@ class LaunchVC: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-        _ = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: #selector(self.presentNavController), userInfo: nil, repeats: false)
+        _ = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(self.presentNavController), userInfo: nil, repeats: false)
     }
     
     func presentNavController() {
-        let homeNavVC = self.storyboard?.instantiateViewControllerWithIdentifier("navVC") as! navVC
-        self.presentViewController(homeNavVC, animated: true, completion: nil)
+        let loginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC") as! LoginVC
+        self.presentViewController(loginVC, animated: true, completion: nil)
     }
 }

@@ -84,6 +84,7 @@
 		EE535EAA1D5820AE00D386C7 /* LogoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoCell.swift; sourceTree = "<group>"; };
 		EE77CABA1D7DFD8E0096BAAC /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		EE77CABD1D7E01C50096BAAC /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		EE77CABF1D7E0BDA0096BAAC /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		EE79AEF51D5A3E1B00A77225 /* CategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
 		EE79AEF71D5A3E2E00A77225 /* DealsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsVC.swift; sourceTree = "<group>"; };
 		EEB2F6D31D5191CC008EED3A /* CycleCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CycleCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +146,7 @@
 		7A117B1E1285853BA5242E1E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE77CABF1D7E0BDA0096BAAC /* Alamofire.framework */,
 				C9D0B356B920A8A785F2B15F /* Pods_CycleCash.framework */,
 				61E7AF4D5A7255DB14E395F1 /* Pods_CycleCashTests.framework */,
 				A7F4B5ABB9DFEE3897E16A2C /* Pods_CycleCashUITests.framework */,
@@ -217,6 +219,7 @@
 		EEB2F6D51D5191CC008EED3A /* CycleCash */ = {
 			isa = PBXGroup;
 			children = (
+				EE77CABC1D7E01890096BAAC /* API */,
 				EEB2F7091D5197B2008EED3A /* Supporting */,
 				EEB2F7081D5197A7008EED3A /* Models */,
 				EEB2F7071D519799008EED3A /* ViewControllers */,
@@ -245,7 +248,6 @@
 		EEB2F7071D519799008EED3A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				EE77CABC1D7E01890096BAAC /* API */,
 				EE79AEF41D5A3DE900A77225 /* Redeem */,
 				EE535EA71D58208500D386C7 /* Cells */,
 				EE27125F1D5249F900B58AB6 /* HomeVC.swift */,
@@ -709,6 +711,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Alamofire",
+				);
 				INFOPLIST_FILE = CycleCash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ivetechnologies.CycleCash;
@@ -722,6 +728,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Alamofire",
+				);
 				INFOPLIST_FILE = CycleCash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ivetechnologies.CycleCash;
