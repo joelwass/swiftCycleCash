@@ -36,15 +36,15 @@ class API: NSObject {
     
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)
-        let urlRequest = requestWithMethod("POST", url: "http://localhost:3000/api/v1/users", parameters: ["email":username, "password":password])
+        let urlRequest = requestWithMethod("POST", url: "https://cyclecash-api-prod.ppqmmfjpjt.us-west-2.elasticbeanstalk.com/api/v1/users", parameters: ["email":username, "password":password])
         
         let task = session.dataTaskWithRequest(urlRequest, completionHandler: {(data, response, error) in
             guard let responseData = data else {
                 print("Error: did not receive data")
                 
                 dispatch_async(dispatch_get_main_queue(), {
-                    let alertCtrl = UIAlertController(title: "Whoops!", message: "Looks like our server is under maintenance, hang tight and try logging in again in a few minutes.", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertCtrl.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+//                    let alertCtrl = UIAlertController(title: "Whoops!", message: "Looks like our server is under maintenance, hang tight and try logging in again in a few minutes.", preferredStyle: UIAlertControllerStyle.Alert)
+//                    alertCtrl.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                     // Find the presented VC...
                     //      self.presentViewController(alertCtrl, animated: true, completion: nil)
                 })
@@ -76,15 +76,15 @@ class API: NSObject {
         
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)
-        let urlRequest = requestWithMethod("POST", url: "http://localhost:3000/api/v1/users/login", parameters: ["email":username, "password":password])
+        let urlRequest = requestWithMethod("POST", url: "http://cyclecash-api-prod.ppqmmfjpjt.us-west-2.elasticbeanstalk.com/api/v1/users/login", parameters: ["email":username, "password":password])
         
         let task = session.dataTaskWithRequest(urlRequest, completionHandler: {(data, response, error) in
             guard let responseData = data else {
                 print("Error: did not receive data")
                 
                 dispatch_async(dispatch_get_main_queue(), {
-                    let alertCtrl = UIAlertController(title: "Whoops!", message: "Looks like our server is under maintenance, hang tight and try logging in again in a few minutes.", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertCtrl.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+//                    let alertCtrl = UIAlertController(title: "Whoops!", message: "Looks like our server is under maintenance, hang tight and try logging in again in a few minutes.", preferredStyle: UIAlertControllerStyle.Alert)
+//                    alertCtrl.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                     // Find the presented VC...
                     //      self.presentViewController(alertCtrl, animated: true, completion: nil)
                 })
@@ -96,7 +96,8 @@ class API: NSObject {
                 return
             }
             dispatch_async(dispatch_get_main_queue(), {
-                print(responseData)
+                let json = JSON(data: responseData)
+                print(json)
                 //                let json = JSON(data: responseData)
                 //                if json["success"].bool == true {
                 //                    self.view.endEditing(true)
@@ -110,4 +111,7 @@ class API: NSObject {
             })
         })
         task.resume()    }
+    
 }
+
+
