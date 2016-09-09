@@ -80,6 +80,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 })
                 if (response["success"] == true) {
                     self.loginSuccessful(response)
+                } else if (response["success"] == false) {
+                    self.loginFailure(response)
                 }
             }
             break
@@ -91,6 +93,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 })
                 if (response["success"] == true) {
                     self.loginSuccessful(response)
+                } else if (response["success"] == false) {
+                    self.signupFailure(response)
                 }
             }
             break
@@ -111,8 +115,26 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             GlobalSettings.SharedInstance.DistanceTraveled = distanceTraveled
         }
         dispatch_async(dispatch_get_main_queue(), { [weak self] in
-            let homeNavVC = self!.storyboard?.instantiateViewControllerWithIdentifier("navVC") as! navVC
-            self!.presentViewController(homeNavVC, animated: true, completion: nil)
+            let homeNavVC = self?.storyboard?.instantiateViewControllerWithIdentifier("navVC") as! navVC
+            self?.presentViewController(homeNavVC, animated: true, completion: nil)
+        })
+    }
+    
+    func loginFailure(response: JSON) {
+        dispatch_async(dispatch_get_main_queue(), { [weak self] in
+            let alert = UIAlertController(title: "Uh Oh", message: response["message"].string, preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "Nice", style: .Default, handler: nil)
+            alert.addAction(OKAction)
+            self?.presentViewController(alert, animated: true, completion: nil)
+        })
+    }
+    
+    func signupFailure(response: JSON) {
+        dispatch_async(dispatch_get_main_queue(), { [weak self] in
+            let alert = UIAlertController(title: "Uh Oh", message: response["message"].string, preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "Nice", style: .Default, handler: nil)
+            alert.addAction(OKAction)
+            self?.presentViewController(alert, animated: true, completion: nil)
         })
     }
 
