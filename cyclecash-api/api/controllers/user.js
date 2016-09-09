@@ -227,7 +227,7 @@ module.exports = {
         models.User.authenticate(body)
             .then(function (localUser) {
 
-                return res.json({ success: true,
+                return res.status(200).json({ success: true,
                         user: localUser.toJSON(),
                         message: helper.strings.LoginSuccess, });
             })

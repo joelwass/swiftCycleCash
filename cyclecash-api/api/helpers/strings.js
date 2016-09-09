@@ -11,6 +11,7 @@ const UserCreationSuccess = 'User creation success';
 const EnterValidEmail = 'Please enter a valid email address';
 const UserUpdateError = 'Invalid User';
 const LoginSuccess = 'Login Success!';
+const TransactionCreatedSuccess = "Transaction Created Success";
 
 module.exports = {
     SorryWeCantFindEmail: SorryWeCantFindEmail,
@@ -22,4 +23,5 @@ module.exports = {
     EnterValidEmail: EnterValidEmail,
     UserUpdateError: UserUpdateError,
     LoginSuccess: LoginSuccess,
+    TransactionCreatedSuccess: TransactionCreatedSuccess,
 };
