@@ -50,6 +50,13 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         emailTF.delegate = self
         passwordTF.delegate = self
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        
+        self.emailTF.text = ""
+        self.passwordTF.text = ""
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -102,8 +109,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             GlobalSettings.SharedInstance.DistanceTraveled = distanceTraveled
         }
         dispatch_async(dispatch_get_main_queue(), { [weak self] in
-            let homeVC = self!.storyboard?.instantiateViewControllerWithIdentifier("HomeVC") as! HomeVC
-            self!.presentViewController(homeVC, animated: true, completion: nil)
+            let homeNavVC = self!.storyboard?.instantiateViewControllerWithIdentifier("navVC") as! navVC
+            self!.presentViewController(homeNavVC, animated: true, completion: nil)
         })
     }
 

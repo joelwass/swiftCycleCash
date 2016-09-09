@@ -90,7 +90,18 @@ class DealsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let alert = UIAlertController(title: self.alertTitle, message: alertMessage, preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "Spend", style: .Default) { _ in
                 dispatch_async(dispatch_get_main_queue(), {
-                    GlobalSettings.SharedInstance.PedalPoints = GlobalSettings.SharedInstance.PedalPoints - pedalPointsToSpend
+                    
+                    let newPedalPoints = GlobalSettings.SharedInstance.PedalPoints - pedalPointsToSpend
+                    GlobalSettings.SharedInstance.PedalPoints = newPedalPoints
+                    
+                    API.sharedInstance().updateUser(newPedalPoints, distanceTraveled: GlobalSettings.SharedInstance.DistanceTraveled, timeTraveled: GlobalSettings.SharedInstance.TimeTraveled) {
+                        response in
+                        print(response)
+                    }
+                    API.sharedInstance().completeTransaction(pedalPointsToSpend, vendor: self.titleText) {
+                        response in
+                        print(response)
+                    }
                     self.showConfirmationAlertView("\(pedalPointsToSpend)")
                 })
             }

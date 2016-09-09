@@ -82,7 +82,7 @@ public class GlobalSettings {
             if let currentUserEmail = NSUserDefaults.standardUserDefaults().stringForKey(Constants.UserEmail) {
                 return currentUserEmail
             } else {
-                return ""
+                return "None"
             }
         }
         set (newUserEmail) {

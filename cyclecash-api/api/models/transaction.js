@@ -17,9 +17,9 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       field: 'vendor'
     },
-    user_id: {
-      type: DataTypes.UUID,
-      field: 'user_id'
+    user_email: {
+      type: DataTypes.STRING,
+      field: 'user_email'
     },
   }, {
     classMethods: {

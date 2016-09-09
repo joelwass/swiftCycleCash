@@ -15,6 +15,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var trackYourMilesButton: UIButton!
     @IBOutlet weak var pedalPointsButton: UIButton!
     @IBOutlet weak var spendPointsButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
     
     let fontOfChoice = GlobalSettings.SharedInstance.Font
     
@@ -24,19 +25,21 @@ class HomeVC: UIViewController {
         self.homePageImage.image = UIImage(named: "cycleCashLogo")
         self.view.backgroundColor = UIColor.init(hex:0xcef4f5)
         self.cycleCashLabel.textColor = UIColor.whiteColor()
-        self.trackYourMilesButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        self.pedalPointsButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        self.spendPointsButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        self.trackYourMilesButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.pedalPointsButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.spendPointsButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.logoutButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         
         self.trackYourMilesButton.setTitle("Track Your Miles", forState: .Normal)
         self.pedalPointsButton.setTitle("Pedal Points", forState: .Normal)
         self.spendPointsButton.setTitle("Spend Points", forState: .Normal)
+        self.logoutButton.setTitle("Logout", forState: .Normal)
         
         self.cycleCashLabel.font = UIFont(name: fontOfChoice, size: 42.0)
         self.trackYourMilesButton.titleLabel?.font = UIFont(name: fontOfChoice, size: 20.0)
         self.pedalPointsButton.titleLabel?.font = UIFont(name: fontOfChoice, size: 20.0)
         self.spendPointsButton.titleLabel?.font = UIFont(name: fontOfChoice, size: 20.0)
-        
+        self.logoutButton.titleLabel?.font = UIFont(name: fontOfChoice, size: 18.0)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -73,10 +76,14 @@ class HomeVC: UIViewController {
         self.navigationController?.pushViewController(redeemPointsVC, animated: true)
     }
     
+    @IBAction func logoutPressed(sender: AnyObject) {
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        GlobalSettings.SharedInstance.UserEmail = "None"
+    }
+    
     func presentOnboardingView() {
         dispatch_async(dispatch_get_main_queue(), { [weak self] () -> () in
             GlobalSettings.SharedInstance.Onboarded = true
-            GlobalSettings.SharedInstance.PedalPoints = 25
             let alert = UIAlertController(title: "Welcome!", message: "Pedal Points is all about rewarding bikers for biking. Once you start tracking your bike rides, for each mile you ride you'll get one pedal point, which you can use to redeem great deals from local vendors in the area! Enjoy!", preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
             alert.addAction(OKAction)

@@ -27,7 +27,12 @@ class LaunchVC: UIViewController {
     }
     
     func presentNavController() {
-        let loginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC") as! LoginVC
-        self.presentViewController(loginVC, animated: true, completion: nil)
+        if (GlobalSettings.SharedInstance.UserEmail == "None") {
+            let loginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC") as! LoginVC
+            self.presentViewController(loginVC, animated: true, completion: nil)
+        } else {
+            let homeNavVC = self.storyboard?.instantiateViewControllerWithIdentifier("navVC") as! navVC
+            self.presentViewController(homeNavVC, animated: true, completion: nil)
+        }
     }
 }

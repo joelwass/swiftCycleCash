@@ -269,13 +269,22 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qp9-Iu-2Sn">
+                                <rect key="frame" x="164" y="629" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FHz-2R-tsX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.61776893109999997" blue="0.83175725659999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="irW-Bj-L8H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1fT-hd-Fl0"/>
                             <constraint firstItem="LGH-zQ-ZRa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="49H-eP-FkG"/>
                             <constraint firstItem="PmG-Ou-Xbe" firstAttribute="top" secondItem="55O-Sd-kUZ" secondAttribute="bottom" constant="8" id="IvS-s4-Kk5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Qp9-Iu-2Sn" secondAttribute="bottom" constant="8" id="Izx-CQ-3t1"/>
                             <constraint firstItem="LGH-zQ-ZRa" firstAttribute="top" secondItem="PmG-Ou-Xbe" secondAttribute="bottom" constant="8" id="JYk-XU-lgU"/>
+                            <constraint firstItem="Qp9-Iu-2Sn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Kfw-gh-5Fp"/>
                             <constraint firstItem="55O-Sd-kUZ" firstAttribute="centerX" secondItem="PmG-Ou-Xbe" secondAttribute="centerX" id="N2C-QW-bok"/>
                             <constraint firstItem="55O-Sd-kUZ" firstAttribute="top" secondItem="Fou-bI-mww" secondAttribute="bottom" constant="28" id="YDS-pR-QwX"/>
                             <constraint firstItem="Fou-bI-mww" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c6W-RG-R1S"/>
@@ -289,6 +298,7 @@
                     <connections>
                         <outlet property="cycleCashLabel" destination="Fou-bI-mww" id="Bcm-a1-iQH"/>
                         <outlet property="homePageImage" destination="irW-Bj-L8H" id="mmJ-Td-1an"/>
+                        <outlet property="logoutButton" destination="Qp9-Iu-2Sn" id="Dma-ck-Ecg"/>
                         <outlet property="pedalPointsButton" destination="PmG-Ou-Xbe" id="24z-MQ-0vy"/>
                         <outlet property="spendPointsButton" destination="LGH-zQ-ZRa" id="Knu-wm-Ulf"/>
                         <outlet property="trackYourMilesButton" destination="55O-Sd-kUZ" id="PpZ-H0-NFh"/>
@@ -656,19 +666,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N07-hy-40X">
-                                <rect key="frame" x="59.5" y="448.5" width="65.5" height="20.5"/>
+                                <rect key="frame" x="60" y="449" width="65" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance (miles)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6J-Ig-taw">
-                                <rect key="frame" x="126.5" y="255.5" width="123" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Distance (miles)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6J-Ig-taw">
+                                <rect key="frame" x="127" y="256" width="123" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed (mph)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFD-o7-b3F">
-                                <rect key="frame" x="232.5" y="448.5" width="99" height="20.5"/>
+                                <rect key="frame" x="233" y="449" width="99" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
