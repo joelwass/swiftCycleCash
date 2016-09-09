@@ -59,6 +59,28 @@ describe('Users', function () {
 
     });
 
+    it('should update user', function (done) {
+
+        var reqBody = {
+            email: email1,
+            password: password1,
+            pedal_points: 25,
+        };
+
+        request(server)
+            .put('/api/v1/users/')
+            .expect('Content-Type', /json/)
+            .send(reqBody)
+            .end(function (err, res) {
+                res.status.should.equal(200);
+                var json = JSON.parse(res.text);
+                json.success.should.equal(true);
+                json.user.pedal_points.should.equal(25);
+                done();
+            });
+
+    });
+
     it('should login', function (done) {
 
         var reqBody = {

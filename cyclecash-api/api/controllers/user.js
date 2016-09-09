@@ -144,14 +144,14 @@ module.exports = {
 
     updateUser: function (req, res) {
 
-        var user = req.user;
-        if (user == null) {
-            return res.status(400).json({ success: false, message: helper.strings.UserUpdateError });
-        }
+        var body = req.body;
 
-        req.user.save()
+        models.User.findOne({ where: { email: body.email } })
+            .then(function (localUser) {
+                return localUser.update(body);
+            })
             .then(function (result) {
-                return res.status(200).json({ success: true, user: user.toJSON() });
+                return res.status(200).json({ success: true, user: result.toJSON() });
             })
             .catch(function (err) {
                 if (err.name && err.name === 'MyError') {
