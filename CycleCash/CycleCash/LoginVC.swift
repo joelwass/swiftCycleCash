@@ -32,9 +32,10 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         self.logoImage.image = UIImage(named: "cycleCashLogo")
-        self.view.backgroundColor = UIColor.init(hex:0xcef4f5)
+        self.view.backgroundColor = UIColor.init(hex: 0xcef4f5)
         
-        self.loginSignUpButton.backgroundColor = UIColor.blueColor()
+        self.loginSignUpButton.backgroundColor = UIColor.init(hex: 0xb4dda5)
+        self.loginSignUpButton.layer.cornerRadius = 5
         self.loginSignUpButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         self.loginSignUpButton.setTitle("Log In", forState: .Normal)
         self.loginSignUpButton.titleLabel?.font = UIFont(name: fontOfChoice, size: 18.0)
@@ -42,7 +43,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         self.emailLabel.font = UIFont(name: fontOfChoice, size: 18.0)
         self.passwordLabel.font = UIFont(name: fontOfChoice, size: 18.0)
         
-        self.viewSwitchButton.backgroundColor = UIColor.orangeColor()
+        self.viewSwitchButton.backgroundColor = UIColor.init(hex: 0xdacba0)
+        self.viewSwitchButton.layer.cornerRadius = 4
         self.viewSwitchButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         self.viewSwitchButton.setTitle("Sign Up", forState: .Normal)
         self.viewSwitchButton.titleLabel?.font = UIFont(name: fontOfChoice, size: 18.0)
