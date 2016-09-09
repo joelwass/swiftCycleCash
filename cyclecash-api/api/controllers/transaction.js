@@ -63,7 +63,7 @@ module.exports = {
             .then(function (localTransaction) {
 
                 return res.status(200).json({ success: true,
-                        user: localTransaction.toJSON(),
+                        transaction: localTransaction.toJSON(),
                         message: helper.strings.TransactionCreatedSuccess,
                 });
             })
@@ -124,11 +124,13 @@ module.exports = {
         models.Transaction.findAll()
             .then(function (results) {
 
-                return res.status(200).json({ success: true,
-                    user: results.toJSON(),
+                return res.status(200).json({
+                    success: true,
+                    transaction: results
                 });
             })
             .catch(function (err) {
+
                 if (err.name && err.name === "MyError") {
                     return res.status(400).json({ success: false, message: err.message });
                 } else {

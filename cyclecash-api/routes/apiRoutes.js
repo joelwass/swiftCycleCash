@@ -14,8 +14,9 @@ router.route('/v1/users/')
 router.route('/v1/users/login/')
     .post(controllers.user.loginUser);
 
-router.route('/v1/users/stats/')
+router.route('/v1/transaction/')
     .post(controllers.transaction.createTransaction)
-    .get(controllers.transaction.getAllTransactions);
+    .get(controllers.transaction.getAllTransactions)
+    .delete(controllers.transaction.deleteTransaction);
 
 module.exports = router;

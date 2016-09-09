@@ -1,5 +1,5 @@
 /**
- * Created by joelwasserman on 9/8/16.
+ * Created by joelwasserman on 9/9/16.
  */
 'use strict'
 
@@ -8,14 +8,18 @@ var should = require('should');
 var server = require('../app.js');
 
 
-describe('Users', function () {
+describe('Transactions', function () {
 
     before((done) => {
         done();
     });
 
-    const email1 = 'joel@test.com';
-    let password1 = 'test';
+    const vendor1 = 'car_shop',
+        points_spent1 = 10,
+        password1 = 'test',
+        email1 = 'joel@test.com';
+    let user_id1;
+
 
     it('should create user', function (done) {
 
@@ -32,63 +36,60 @@ describe('Users', function () {
                 res.status.should.equal(200);
                 var json = JSON.parse(res.text);
                 json.success.should.equal(true);
+                user_id1 = json.user.id;
                 done();
             });
 
     });
 
-    it('should not create (dup email)', function (done) {
+    it('should create transaction', function (done) {
 
         var reqBody = {
-            email: email1,
-            password: password1
+            vendor: vendor1,
+            points_spent: points_spent1,
+            user_id: user_id1
         };
 
         request(server)
-            .post('/api/v1/users/')
-            .expect('Content-Type', /json/)
-            .send(reqBody)
-            .end(function (err, res) {
-                res.status.should.equal(400);
-                var json = JSON.parse(res.text);
-                json.success.should.equal(false);
-                json.message.should.equal('Email already exists. Try logging in');
-                done();
-            });
-
-    });
-
-    it('should update user', function (done) {
-
-        var reqBody = {
-            email: email1,
-            password: password1,
-            pedal_points: 25,
-        };
-
-        request(server)
-            .put('/api/v1/users/')
+            .post('/api/v1/transaction/')
             .expect('Content-Type', /json/)
             .send(reqBody)
             .end(function (err, res) {
                 res.status.should.equal(200);
                 var json = JSON.parse(res.text);
                 json.success.should.equal(true);
-                json.user.pedal_points.should.equal(25);
+                json.transaction.points_spent.should.equal(10);
                 done();
             });
 
     });
 
-    it('should login', function (done) {
+    it('should get all transactions', function (done) {
+
+        request(server)
+            .get('/api/v1/transaction/')
+            .expect('Content-Type', /json/)
+            .end(function (err, res) {
+                res.status.should.equal(200);
+                var json = JSON.parse(res.text);
+                json.success.should.equal(true);
+                json.transaction.length.should.equal(1);
+                json.transaction[0].points_spent.should.equal(10);
+                done();
+            });
+
+    });
+
+    it('should delete transaction', function (done) {
 
         var reqBody = {
-            email: email1,
-            password: password1
+            vendor: vendor1,
+            points_spent: points_spent1,
+            user_id: user_id1,
         };
 
         request(server)
-            .post('/api/v1/users/login/')
+            .delete('/api/v1/transaction/')
             .expect('Content-Type', /json/)
             .send(reqBody)
             .end(function (err, res) {
@@ -98,11 +99,6 @@ describe('Users', function () {
                 done();
             });
 
-    });
-
-    it('should not login (invalid pwd)', function (done) {
-
-        done();
     });
 
     it('should delete user', function (done) {
