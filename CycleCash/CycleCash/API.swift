@@ -32,22 +32,17 @@ class API: NSObject {
         return urlRequest
     }
     
-    func signUp(username: String, password: String) {
+    func signUp(username: String, password: String, completion: (result: JSON) -> Void) {
     
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)
-        let urlRequest = requestWithMethod("POST", url: "https://cyclecash-api-prod.ppqmmfjpjt.us-west-2.elasticbeanstalk.com/api/v1/users", parameters: ["email":username, "password":password])
+        let urlRequest = requestWithMethod("POST", url: "http://cyclecash-api-prod.ppqmmfjpjt.us-west-2.elasticbeanstalk.com/api/v1/users/", parameters: ["email":username, "password":password])
         
         let task = session.dataTaskWithRequest(urlRequest, completionHandler: {(data, response, error) in
             guard let responseData = data else {
                 print("Error: did not receive data")
-                
-                dispatch_async(dispatch_get_main_queue(), {
-//                    let alertCtrl = UIAlertController(title: "Whoops!", message: "Looks like our server is under maintenance, hang tight and try logging in again in a few minutes.", preferredStyle: UIAlertControllerStyle.Alert)
-//                    alertCtrl.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                    // Find the presented VC...
-                    //      self.presentViewController(alertCtrl, animated: true, completion: nil)
-                })
+                let json: JSON = "Error: did not receive data"
+                completion(result: json)
                 return
             }
             guard error == nil else {
@@ -55,39 +50,23 @@ class API: NSObject {
                 print(error)
                 return
             }
-            dispatch_async(dispatch_get_main_queue(), {
-                print(responseData)
-//                let json = JSON(data: responseData)
-//                if json["success"].bool == true {
-//                    self.view.endEditing(true)
-//                    
-//                    UserSettings.sharedInstance.UserId = json["message"].int!
-//                    self.finishLoggingIn()
-//                } else {
-//                    self.existing = false
-//                    self.errorMessage.hidden = false
-//                }
-            })
+            let json = JSON(data: responseData)
+            completion(result: json)
         })
         task.resume()
     }
     
-    func logIn(username: String, password: String) {
+    func logIn(username: String, password: String, completion: (result: JSON) -> Void) {
         
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)
-        let urlRequest = requestWithMethod("POST", url: "http://cyclecash-api-prod.ppqmmfjpjt.us-west-2.elasticbeanstalk.com/api/v1/users/login", parameters: ["email":username, "password":password])
+        let urlRequest = requestWithMethod("POST", url: "http://cyclecash-api-prod.ppqmmfjpjt.us-west-2.elasticbeanstalk.com/api/v1/users/login/", parameters: ["email":username, "password":password])
         
         let task = session.dataTaskWithRequest(urlRequest, completionHandler: {(data, response, error) in
             guard let responseData = data else {
                 print("Error: did not receive data")
-                
-                dispatch_async(dispatch_get_main_queue(), {
-//                    let alertCtrl = UIAlertController(title: "Whoops!", message: "Looks like our server is under maintenance, hang tight and try logging in again in a few minutes.", preferredStyle: UIAlertControllerStyle.Alert)
-//                    alertCtrl.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                    // Find the presented VC...
-                    //      self.presentViewController(alertCtrl, animated: true, completion: nil)
-                })
+                let json: JSON = "Error: did not receive data"
+                completion(result: json)
                 return
             }
             guard error == nil else {
@@ -95,23 +74,11 @@ class API: NSObject {
                 print(error)
                 return
             }
-            dispatch_async(dispatch_get_main_queue(), {
-                let json = JSON(data: responseData)
-                print(json)
-                //                let json = JSON(data: responseData)
-                //                if json["success"].bool == true {
-                //                    self.view.endEditing(true)
-                //
-                //                    UserSettings.sharedInstance.UserId = json["message"].int!
-                //                    self.finishLoggingIn()
-                //                } else {
-                //                    self.existing = false
-                //                    self.errorMessage.hidden = false
-                //                }
-            })
+            let json = JSON(data: responseData)
+            completion(result: json)
         })
-        task.resume()    }
-    
+        task.resume()
+    }
 }
 
 

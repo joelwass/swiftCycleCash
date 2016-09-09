@@ -18,6 +18,7 @@ public class GlobalSettings {
         static let Time = "Time"
         static let Font = "BoosterNextFY-Medium"
         static let Onboarded = "Onboarded"
+        static let UserId = "UserId"
     }
     
     public class var SharedInstance: GlobalSettings {
@@ -73,6 +74,19 @@ public class GlobalSettings {
         }
         set (newOnboarded) {
             NSUserDefaults.standardUserDefaults().setBool(newOnboarded, forKey: Constants.Onboarded)
+        }
+    }
+    
+    public var UserId: String {
+        get {
+            if let currentUserId = NSUserDefaults.standardUserDefaults().stringForKey(Constants.UserId) {
+                return currentUserId
+            } else {
+                return ""
+            }
+        }
+        set (newUserId) {
+            NSUserDefaults.standardUserDefaults().setObject(newUserId, forKey: Constants.UserId)
         }
     }
 }

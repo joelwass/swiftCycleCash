@@ -9,6 +9,7 @@ var controllers = require('../api/controllers');
 router.route('/v1/users/')
     .post(controllers.user.createUser)
     .put(controllers.user.updateUser)
+    .delete(controllers.user.deleteUser);
 
 router.route('/v1/users/login/')
     .post(controllers.user.loginUser);

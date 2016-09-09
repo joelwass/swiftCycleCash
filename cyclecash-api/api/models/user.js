@@ -6,8 +6,6 @@ var Promise = require('bluebird');
 var bcrypt = require('bcrypt');
 Promise.promisifyAll(bcrypt);
 var _ = require('lodash');
-var cryptojs = require('crypto-js');
-var jwt = require('jsonwebtoken');
 
 
 const helper = require('../helpers');
@@ -34,11 +32,11 @@ module.exports = function (sequelize, DataTypes) {
         len: [6, 100],
       },
     },
-    firstname: {
+    first_name: {
       type: DataTypes.STRING,
       field: 'first_name'
     },
-    lastname: {
+    last_name: {
       type: DataTypes.STRING,
       field: 'last_name',
     },
@@ -51,7 +49,7 @@ module.exports = function (sequelize, DataTypes) {
       field: 'distance_traveled',
     },
     time_traveled: {
-      type: DataTypes.DATE,
+      type: DataTypes.INTEGER,
       field: 'time_traveled',
     },
     meta: {
@@ -96,14 +94,6 @@ module.exports = function (sequelize, DataTypes) {
         fields: ['email'],
       },
     ],
-  });
-
-  User.beforeValidate(function (user, options) {
-
-    if (!user.email || !user.password) {
-      throw new MyError(helper.strings.InvalidParameters);
-    }
-    user.email = user.email.toLowerCase();
   });
 
   User.beforeCreate(function (user, options, next) {

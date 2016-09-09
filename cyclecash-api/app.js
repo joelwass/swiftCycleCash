@@ -9,7 +9,7 @@ var sequelize = require('sequelize');
 
 var routes = require('./routes/index');
 var apiRoutes = require('./routes/apiRoutes');
-var models = require('./api/models');
+
 
 var app = express();
 
@@ -19,7 +19,31 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+var format = ':remote-addr - :remote-user \[' +
+    ':date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":user-agent" \:' +
+    'response-time';
+
+app.use(logger(format));
+
+app.use(function (req, res, next) {
+  req.startRequestTime = new Date();
+  next();
+});
+
+app.use(function (req, res, next) {
+  res.on('finish', function () {
+    var durationMs = (new Date()).getTime() - req.startRequestTime.getTime();
+
+    if (durationMs < 2000) {
+      return null;
+    } else {
+      console.log("wtf is happening: " + durationMs);
+    }
+  });
+
+  next();
+});
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());

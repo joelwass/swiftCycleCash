@@ -57,8 +57,9 @@ module.exports = {
         var params = _.pick(req.body, 'email', 'password'),
             user;
 
-        models.User.findOrCreate({ where: { email: req.body.email }, defaults: params })
+        models.User.findOrCreate({ where: { email: params.email }, defaults: params })
             .then(function (result) {
+                console.log(result);
                 var created = result[1];
                 if (created) {
                     user = result[0];
@@ -75,6 +76,7 @@ module.exports = {
                 return res.json(json);
             })
             .catch(function (err) {
+                console.log(err);
                 if (err.name && err.name === 'MyError') {
                     return res.status(400).json({ success: false, message: err.message });
                 }
@@ -216,8 +218,7 @@ module.exports = {
      */
 
     loginUser: function (req, res) {
-        var user,
-            body = _.pick(req.body, 'email', 'password');
+        var body = _.pick(req.body, 'email', 'password');
 
         if (_.keys(body).length != 2) {
             return res.status(400).json({ success: false, message: helper.strings.InvalidParameters });
@@ -225,20 +226,80 @@ module.exports = {
 
         models.User.authenticate(body)
             .then(function (localUser) {
-                user = localUser;
-                return user;
-            })
-            .then(function (localUser) {
 
                 return res.json({ success: true,
-                        user: user.toJSON(),
+                        user: localUser.toJSON(),
                         message: helper.strings.LoginSuccess, });
             })
             .catch(function (err) {
                 if (err.name && err.name === 'MyError') {
                     return res.status(400).json({ success: false, message: err.message });
                 } else {
-                    helper.logging.logError(err, req);
+                    return res.status(500).send({ success: false, message: helper.strings.AnErrorHappened });
+                }
+            });
+    },
+
+    /**
+     * @swagger
+     * definition:
+     *   SignInUser:
+     *     properties:
+     *       email:
+     *         type: string
+     *       password:
+     *         type: string
+     */
+
+    /**
+     * @swagger
+     * /api/v1/users:
+     *   delete:
+     *     tags:
+     *       - Users
+     *     description: Deletes a user in.
+     *       <table>
+     *       <tr>
+     *       <td>db</td>
+     *       <td>sql example</td>
+     *       <tr>
+     *       <td>postgres</td>
+     *       <td>select * from "Users" where email = "email"</td>
+     *       </tr>
+     *       </table>
+     *     consumes:
+     *       - application/json
+     *     produces:
+     *       - application/json
+     *     parameters:
+     *     - name: user
+     *       description: Input parameters needed for signing in a user
+     *       in: body
+     *       required: true
+     *       schema:
+     *         $ref: '#/definitions/SignInUser'
+     *     responses:
+     *       200:
+     *         description: Deletes in a user
+     */
+
+    deleteUser: function (req, res) {
+        var body = _.pick(req.body, 'email', 'password');
+
+        if (_.keys(body).length != 2) {
+            return res.status(400).json({ success: false, message: helper.strings.InvalidParameters });
+        }
+
+        models.User.findOne({ where: { email: body.email } })
+            .then(function (user) {
+
+                user.destroy();
+                return res.json({ success: true });
+            })
+            .catch(function (err) {
+                if (err.name && err.name === 'MyError') {
+                    return res.status(400).json({ success: false, message: err.message });
+                } else {
                     return res.status(500).send({ success: false, message: helper.strings.AnErrorHappened });
                 }
             });
