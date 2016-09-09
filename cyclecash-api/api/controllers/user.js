@@ -5,6 +5,7 @@
 const _ = require('lodash');
 const models  = require('../models');
 const helper = require('../helpers');
+const MyError = helper.error;
 
 module.exports = {
 
@@ -59,7 +60,6 @@ module.exports = {
 
         models.User.findOrCreate({ where: { email: params.email }, defaults: params })
             .then(function (result) {
-                console.log(result);
                 var created = result[1];
                 if (created) {
                     user = result[0];

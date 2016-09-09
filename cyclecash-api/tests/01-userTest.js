@@ -30,9 +30,8 @@ describe('Users', function () {
             .expect('Content-Type', /json/)
             .send(reqBody)
             .end(function (err, res) {
-                var json = JSON.parse(res.text);
-                console.log(json);
                 res.status.should.equal(200);
+                var json = JSON.parse(res.text);
                 json.success.should.equal(true);
                 done();
             });
@@ -51,9 +50,10 @@ describe('Users', function () {
             .expect('Content-Type', /json/)
             .send(reqBody)
             .end(function (err, res) {
-                res.status.should.equal(200);
+                res.status.should.equal(400);
                 var json = JSON.parse(res.text);
-                json.success.should.equal(true);
+                json.success.should.equal(false);
+                json.message.should.equal('Email already exists. Try logging in');
                 done();
             });
 

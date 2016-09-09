@@ -17,24 +17,19 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       field: 'vendor'
     },
-    meta: {
-      type: DataTypes.JSON,
-      field: 'meta'
-    }
+    user_id: {
+      type: DataTypes.UUID,
+      field: 'user_id'
+    },
   }, {
     classMethods: {
-      associate: function (models) {
-        Transaction.hasOne(models.User, { foreignKey: 'user_id' });
-      }
+
     },
     instanceMethods: {
 
     },
     indexes: [
-      {
-        unique: true,
-        fields: ['email']
-      }
+
     ]
   });
 

@@ -29,7 +29,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       field: 'password',
       validate: {
-        len: [6, 100],
+        len: [3, 100],
       },
     },
     first_name: {
@@ -51,10 +51,6 @@ module.exports = function (sequelize, DataTypes) {
     time_traveled: {
       type: DataTypes.INTEGER,
       field: 'time_traveled',
-    },
-    meta: {
-      type: DataTypes.JSON,
-      field: 'meta',
     },
   }, {
     classMethods: {
