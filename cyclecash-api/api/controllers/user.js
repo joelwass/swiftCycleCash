@@ -57,6 +57,9 @@ module.exports = {
 
         var params = _.pick(req.body, 'email', 'password'),
             user;
+        params.pedal_points = 25;
+        params.distance_traveled = 0.0;
+        params.time_traveled = 0;
 
         models.User.findOrCreate({ where: { email: params.email }, defaults: params })
             .then(function (result) {
@@ -69,6 +72,7 @@ module.exports = {
                 }
             })
             .then(function (localUser) {
+
                 const json = { success: true,
                     user: user.toJSON(),
                     message: helper.strings.UserCreationSuccess,
@@ -76,7 +80,6 @@ module.exports = {
                 return res.json(json);
             })
             .catch(function (err) {
-                console.log(err);
                 if (err.name && err.name === 'MyError') {
                     return res.status(400).json({ success: false, message: err.message });
                 }

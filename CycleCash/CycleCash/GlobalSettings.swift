@@ -14,11 +14,11 @@ public class GlobalSettings {
     
     struct Constants {
         static let PedalPoints = "PedalPoints"
-        static let Distance = "Distance"
-        static let Time = "Time"
+        static let DistanceTraveled = "DistanceTraveled"
+        static let TimeTraveled = "TimeTraveled"
         static let Font = "BoosterNextFY-Medium"
         static let Onboarded = "Onboarded"
-        static let UserId = "UserId"
+        static let UserEmail = "UserEmail"
     }
     
     public class var SharedInstance: GlobalSettings {
@@ -34,22 +34,22 @@ public class GlobalSettings {
         }
     }
     
-    public var Distance:Double {
+    public var DistanceTraveled:Double {
         get {
-            return NSUserDefaults.standardUserDefaults().doubleForKey(Constants.Distance)
+            return NSUserDefaults.standardUserDefaults().doubleForKey(Constants.DistanceTraveled)
         }
-        set (newDistance) {
-            NSUserDefaults.standardUserDefaults().setDouble(newDistance, forKey: Constants.Distance)
+        set (newDistanceTraveled) {
+            NSUserDefaults.standardUserDefaults().setDouble(newDistanceTraveled, forKey: Constants.DistanceTraveled)
         }
     }
     
     
-    public var Time: Int {
+    public var TimeTraveled: Int {
         get {
-            return NSUserDefaults.standardUserDefaults().integerForKey(Constants.Time)
+            return NSUserDefaults.standardUserDefaults().integerForKey(Constants.TimeTraveled)
         }
-        set (newTime) {
-            NSUserDefaults.standardUserDefaults().setInteger(newTime, forKey: Constants.Distance)
+        set (newTimeTraveled) {
+            NSUserDefaults.standardUserDefaults().setInteger(newTimeTraveled, forKey: Constants.TimeTraveled)
         }
     }
     
@@ -77,16 +77,16 @@ public class GlobalSettings {
         }
     }
     
-    public var UserId: String {
+    public var UserEmail: String {
         get {
-            if let currentUserId = NSUserDefaults.standardUserDefaults().stringForKey(Constants.UserId) {
-                return currentUserId
+            if let currentUserEmail = NSUserDefaults.standardUserDefaults().stringForKey(Constants.UserEmail) {
+                return currentUserEmail
             } else {
                 return ""
             }
         }
-        set (newUserId) {
-            NSUserDefaults.standardUserDefaults().setObject(newUserId, forKey: Constants.UserId)
+        set (newUserEmail) {
+            NSUserDefaults.standardUserDefaults().setObject(newUserEmail, forKey: Constants.UserEmail)
         }
     }
 }

@@ -26,6 +26,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     let fontOfChoice = GlobalSettings.SharedInstance.Font
     var currentState = LoginState.Login
     
+    var dimView:DimView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,18 +58,53 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func loginSignUp(sender: AnyObject) {
         
+        dimView = DimView(frame: CGRectMake(0,0,self.view.frame.width,self.view.frame.height))
+        self.view.addSubview(dimView!)
+        self.view.bringSubviewToFront(dimView!)
+        
         switch currentState {
         case .Login:
             API.sharedInstance().logIn(emailTF.text!, password: passwordTF.text!) { response in
                 print(response)
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.dimView?.removeFromSuperview()
+                })
+                if (response["success"] == true) {
+                    self.loginSuccessful(response)
+                }
             }
             break
         case .Signup:
             API.sharedInstance().signUp(emailTF.text!, password: passwordTF.text!) { response in
                 print(response)
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.dimView?.removeFromSuperview()
+                })
+                if (response["success"] == true) {
+                    self.loginSuccessful(response)
+                }
             }
             break
         }
+    }
+    
+    func loginSuccessful(response: JSON) {
+        if let userid = response["user"]["email"].string {
+            GlobalSettings.SharedInstance.UserEmail = userid
+        }
+        if let pedalPoints = response["user"]["pedal_points"].int {
+            GlobalSettings.SharedInstance.PedalPoints = pedalPoints
+        }
+        if let timeTraveled = response["user"]["time_traveled"].int {
+            GlobalSettings.SharedInstance.TimeTraveled = timeTraveled
+        }
+        if let distanceTraveled = response["user"]["distance_traveled"].double {
+            GlobalSettings.SharedInstance.DistanceTraveled = distanceTraveled
+        }
+        dispatch_async(dispatch_get_main_queue(), { [weak self] in
+            let homeVC = self!.storyboard?.instantiateViewControllerWithIdentifier("HomeVC") as! HomeVC
+            self!.presentViewController(homeVC, animated: true, completion: nil)
+        })
     }
 
     @IBAction func switchViews(sender: AnyObject) {

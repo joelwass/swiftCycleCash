@@ -35,6 +35,8 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     lazy var locations = [CLLocation]()
     var presentedWarning = false
+    
+    var durationInt:Int?
 
     let fontOfChoice = GlobalSettings.SharedInstance.Font
     
@@ -122,9 +124,6 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func stopPressed(sender: AnyObject) {
-        self.resetTimer()
-        self.resetDistance()
-        self.resetSpeed()
         
         self.startButton.enabled = true
         self.stopButton.enabled = false
@@ -164,6 +163,7 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
         
         //Find the difference between current time and start time.
         var elapsedTime: NSTimeInterval = currentTime - startTime!
+        durationInt = Int(elapsedTime)
         
         //calculate the hours in elapsted time.
         let hours = UInt8(elapsedTime / 3600.0)
@@ -225,12 +225,19 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
     func presentCongratsAlert() {
         // calculate points earned
         let pointsEarned = Int(round((distance * 0.000621371)*100) / 100)
-        GlobalSettings.SharedInstance.PedalPoints += pointsEarned
-        
+
+        API.sharedInstance().updateUser(pointsEarned, distanceTraveled: distance, timeTraveled: durationInt!) {
+            response in
+            print(response)
+        }
 
         dispatch_async(dispatch_get_main_queue(), { [weak self] () -> () in
             let alert = UIAlertController(title: "Great Work", message: "You earned \(pointsEarned) Pedal Points!", preferredStyle: .Alert)
-            let OKAction = UIAlertAction(title: "Nice", style: .Default, handler: nil)
+            let OKAction = UIAlertAction(title: "Nice", style: .Default) { _ in
+                self!.resetTimer()
+                self!.resetDistance()
+                self!.resetSpeed()
+            }
             alert.addAction(OKAction)
             self?.presentViewController(alert, animated: true, completion: nil)
         })
