@@ -2,6 +2,10 @@
  * Created by joelwasserman on 9/5/16.
  */
 
+import React, { Component } from 'react';
+import { Label, } from 'react-bootstrap';
+import '../stylesheets/app.css';
+
 var Comment = React.createClass({
     rawMarkup: function() {
         var md = new Remarkable();
@@ -133,7 +137,4 @@ var CommentForm = React.createClass({
     }
 });
 
-ReactDOM.render(
-//<CommentBox url="/api/comments" pollInterval={2000} />,
-//    document.getElementById('content')
-);
+export default App;
