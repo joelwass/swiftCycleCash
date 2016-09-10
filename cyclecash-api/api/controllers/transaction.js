@@ -184,7 +184,7 @@ module.exports = {
 
     deleteTransaction: function (req, res) {
 
-        var body = _.pick(req.body, 'user_id', 'points_spent', 'vendor');
+        var body = _.pick(req.body, 'user_email', 'points_spent', 'vendor');
         if (_.keys(body).length != 3) {
             return res.status(400).json({ success: false, message: helper.strings.InvalidParameters });
         }

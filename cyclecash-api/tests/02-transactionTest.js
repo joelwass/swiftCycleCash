@@ -18,7 +18,6 @@ describe('Transactions', function () {
         points_spent1 = 10,
         password1 = 'test',
         email1 = 'joel@test.com';
-    let user_id1;
 
 
     it('should create user', function (done) {
@@ -36,7 +35,6 @@ describe('Transactions', function () {
                 res.status.should.equal(200);
                 var json = JSON.parse(res.text);
                 json.success.should.equal(true);
-                user_id1 = json.user.id;
                 done();
             });
 
@@ -47,7 +45,7 @@ describe('Transactions', function () {
         var reqBody = {
             vendor: vendor1,
             points_spent: points_spent1,
-            user_id: user_id1
+            user_email: email1
         };
 
         request(server)
@@ -85,7 +83,7 @@ describe('Transactions', function () {
         var reqBody = {
             vendor: vendor1,
             points_spent: points_spent1,
-            user_id: user_id1,
+            user_email: email1,
         };
 
         request(server)
