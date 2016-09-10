@@ -11,7 +11,6 @@
 		404952927AAA35C996670266 /* Pods_CycleCash_CycleCashUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820C1031032141E762B77273 /* Pods_CycleCash_CycleCashUITests.framework */; };
 		CDB94C78BD0C46CB578F5335 /* Pods_CycleCash_CycleCashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E4DD09F9F9B4E9A7DD0B59 /* Pods_CycleCash_CycleCashTests.framework */; };
 		D61CD9DA61D2E3B5FD5349A9 /* Pods_CycleCashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E7AF4D5A7255DB14E395F1 /* Pods_CycleCashTests.framework */; };
-		E686C84A90B072AD734F306B /* Pods_CycleCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D0B356B920A8A785F2B15F /* Pods_CycleCash.framework */; };
 		EE2712601D5249F900B58AB6 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE27125F1D5249F900B58AB6 /* HomeVC.swift */; };
 		EE2712621D524A0600B58AB6 /* PedalPointsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2712611D524A0600B58AB6 /* PedalPointsVC.swift */; };
 		EE2712641D524A0E00B58AB6 /* RedeemPointsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2712631D524A0E00B58AB6 /* RedeemPointsVC.swift */; };
@@ -119,7 +118,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E686C84A90B072AD734F306B /* Pods_CycleCash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
