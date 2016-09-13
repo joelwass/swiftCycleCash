@@ -225,10 +225,11 @@ class DashboardVC: UIViewController, CLLocationManagerDelegate {
     func presentCongratsAlert() {
         // calculate points earned
         let pointsEarned = Int(round((distance * 0.000621371)*100) / 100)
+        let milesDistance = round((distance * 0.000621371)*100) / 100
         
         let newPedalPoints = GlobalSettings.SharedInstance.PedalPoints + pointsEarned
         GlobalSettings.SharedInstance.PedalPoints = newPedalPoints
-        let newDistanceTraveled = GlobalSettings.SharedInstance.DistanceTraveled + distance
+        let newDistanceTraveled = GlobalSettings.SharedInstance.DistanceTraveled + milesDistance
         GlobalSettings.SharedInstance.DistanceTraveled = newDistanceTraveled
         let newTimeTraveled = GlobalSettings.SharedInstance.TimeTraveled + durationInt!
         GlobalSettings.SharedInstance.TimeTraveled = newTimeTraveled
