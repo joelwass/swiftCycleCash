@@ -1,4 +1,4 @@
-# swiftCycleCash
+# Node Express Example App in conjunction with iOS Swift 2.0 Example App
 
 This is an example node.js express backend api implementation and swift iOS application implementation. 
 
