@@ -77,7 +77,7 @@ module.exports = {
      *       200:
      *         description: Creates a user
      *         schema:
-     *           $ref: '#/definitions/User200Response
+     *           $ref: '#/definitions/User200Response'
      *       400:
      *         description: Something we're aware of went wrong, description of what went
      *           wrong should be returned in the message of the body returned
@@ -183,7 +183,7 @@ module.exports = {
      *       200:
      *         description: Updates a user
      *         schema:
-     *           $ref: '#/definitions/UserUpdate200Response
+     *           $ref: '#/definitions/UserUpdate200Response'
      *       400:
      *         description: Something we're aware of went wrong, description of what went
      *           wrong should be returned in the message of the body returned
@@ -266,7 +266,7 @@ module.exports = {
      *       200:
      *         description: Logs in and returns a user
      *         schema:
-     *           $ref: '#/definitions/User200Response
+     *           $ref: '#/definitions/User200Response'
      *       400:
      *         description: Something we're aware of went wrong, description of what went
      *           wrong should be returned in the message of the body returned

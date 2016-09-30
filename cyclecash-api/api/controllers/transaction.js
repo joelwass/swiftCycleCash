@@ -88,7 +88,7 @@ module.exports = {
      *       200:
      *         description: Creates a transaction
      *         schema:
-     *           $ref: '#/definitions/Transaction200Response
+     *           $ref: '#/definitions/Transaction200Response'
      *       400:
      *         description: Something we're aware of went wrong, description of what went
      *           wrong should be returned in the message of the body returned
@@ -163,7 +163,7 @@ module.exports = {
      *       200:
      *         description: Gets all transactions
      *         schema:
-     *           $ref: '#/definitions/TransactionGetAll200Response
+     *           $ref: '#/definitions/TransactionGetAll200Response'
      *       400:
      *         description: Something we're aware of went wrong, description of what went
      *           wrong should be returned in the message of the body returned

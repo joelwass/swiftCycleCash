@@ -61,6 +61,7 @@ app.use(function(req, res, next) {
 });
 
 // docs
+process.env.NODE_ENV='local';
 if (process.env.NODE_ENV != undefined && process.env.NODE_ENV.indexOf('local') != -1) {
 
   // in local or dev, display swagger api
@@ -91,7 +92,7 @@ if (process.env.NODE_ENV != undefined && process.env.NODE_ENV.indexOf('local') !
   });
 }
 
-// error handlers
+// MARK: error handlers
 
 // development error handler
 // will print stacktrace
