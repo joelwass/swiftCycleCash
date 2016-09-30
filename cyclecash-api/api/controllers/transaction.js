@@ -12,7 +12,7 @@ module.exports = {
     /**
      * @swagger
      * definition:
-     *   CreateUser:
+     *   Transaction:
      *     properties:
      *       email:
      *         type: string
@@ -22,40 +22,73 @@ module.exports = {
 
     /**
      * @swagger
-     * /api/v1/users:
+     * definition:
+     *   Transaction200Response:
+     *     properties:
+     *       success:
+     *         type: boolean
+     *       transaction:
+     *         $ref: '#/definitions/Transaction'
+     *       message:
+     *         type: string
+     */
+
+    /**
+     * @swagger
+     * definition:
+     *   ErrorResponse:
+     *     properties:
+     *       success:
+     *         type: boolean
+     *       message:
+     *         type: string
+     */
+
+    /**
+     * @swagger
+     * /api/v1/transaction:
      *   post:
      *     tags:
-     *       - Users
-     *     description: Creates a grownup.
-     *       <table>
-     *       <tr>
-     *       <td>db</td>
-     *       <td>sql check</td>
-     *       <tr>
-     *       <td>mysql</td>
-     *       <td>SELECT * FROM  "Users" WHERE email = 'email' </td>
-     *       </tr>
-     *       </table>
+     *       - Transaction
+     *     description: Creates a transaction.
      *     consumes:
      *       - application/json
      *     produces:
      *       - application/json
      *     parameters:
-     *     - name: user
-     *       description: Input parameters needed for creating a user
+     *     - name: transaction
+     *       description: Input parameters needed for creating a transaction
      *       in: body
      *       required: true
      *       schema:
-     *         $ref: '#/definitions/CreateUser'
+     *         $ref: '#/definitions/Transaction'
      *     responses:
      *       200:
-     *         description: Creates a user
+     *         description: Creates a transaction
+     *         schema:
+     *           $ref: '#/definitions/Transaction200Response
+     *       400:
+     *         description: Something we're aware of went wrong, description of what went
+     *           wrong should be returned in the message of the body returned
+     *         schema:
+     *           $ref: '#/definitions/ErrorResponse'
+     *       500:
+     *         description: Something went wrong with our server or that we aren't aware of
+     *           or anticipating.
+     *         schema:
+     *           $ref: '#/definitions/ErrorResponse'
      */
 
     createTransaction: function (req, res) {
 
         var body = _.pick(req.body, 'user_email', 'points_spent', 'vendor');
-        if (_.keys(body).length != 3) {
+
+        // parameter validation
+        if (_.keys(body).length != 3
+        || (typeof req.body.user_email != "string")
+        || (typeof req.body.points_spent != "number")
+        || (typeof req.body.vendor != "string")
+        ) {
             return res.status(400).json({ success: false, message: helper.strings.InvalidParameters });
         }
 
@@ -79,44 +112,46 @@ module.exports = {
     /**
      * @swagger
      * definition:
-     *   CreateUser:
+     *   TransactionGetAll200Response:
      *     properties:
-     *       email:
-     *         type: string
-     *       password:
-     *         type: string
+     *       success:
+     *         type: boolean
+     *       transaction:
+     *         type: array
+     *         items:
+     *           $ref: '#/definitions/Transaction'
      */
 
     /**
      * @swagger
-     * /api/v1/users:
-     *   post:
+     * /api/v1/transaction:
+     *   get:
      *     tags:
-     *       - Users
-     *     description: Creates a grownup.
-     *       <table>
-     *       <tr>
-     *       <td>db</td>
-     *       <td>sql check</td>
-     *       <tr>
-     *       <td>mysql</td>
-     *       <td>SELECT * FROM  "Users" WHERE email = 'email' </td>
-     *       </tr>
-     *       </table>
+     *       - Transaction
+     *     description: Gets all a transactions.
      *     consumes:
      *       - application/json
      *     produces:
      *       - application/json
      *     parameters:
-     *     - name: user
-     *       description: Input parameters needed for creating a user
+     *     - name: transaction
+     *       description: Should have an empty body, no params, nothing.
      *       in: body
-     *       required: true
-     *       schema:
-     *         $ref: '#/definitions/CreateUser'
      *     responses:
      *       200:
-     *         description: Creates a user
+     *         description: Gets all transactions
+     *         schema:
+     *           $ref: '#/definitions/TransactionGetAll200Response
+     *       400:
+     *         description: Something we're aware of went wrong, description of what went
+     *           wrong should be returned in the message of the body returned
+     *         schema:
+     *           $ref: '#/definitions/ErrorResponse'
+     *       500:
+     *         description: Something went wrong with our server or that we aren't aware of
+     *           or anticipating.
+     *         schema:
+     *           $ref: '#/definitions/ErrorResponse'
      */
 
     getAllTransactions: function (req, res) {
@@ -141,51 +176,64 @@ module.exports = {
 
     /**
      * @swagger
-     * definition:
-     *   SignInUser:
-     *     properties:
-     *       email:
-     *         type: string
-     *       password:
-     *         type: string
-     */
-
-    /**
-     * @swagger
-     * /api/v1/users:
+     * /api/v1/transaction:
      *   delete:
      *     tags:
-     *       - Users
-     *     description: Deletes a user in.
-     *       <table>
-     *       <tr>
-     *       <td>db</td>
-     *       <td>sql example</td>
-     *       <tr>
-     *       <td>postgres</td>
-     *       <td>select * from "Users" where email = "email"</td>
-     *       </tr>
-     *       </table>
+     *       - Transaction
+     *     description: Deletes transactions.
      *     consumes:
      *       - application/json
      *     produces:
      *       - application/json
      *     parameters:
-     *     - name: user
-     *       description: Input parameters needed for signing in a user
+     *     - name: transaction
+     *       description: Should have all valid params to pass to deleting a transaction.
      *       in: body
      *       required: true
      *       schema:
-     *         $ref: '#/definitions/SignInUser'
+     *         properties:
+     *           user_email:
+     *             type: string
+     *             required: true
+     *           points_spent:
+     *             type: integer
+     *             required: true
+     *           vendor:
+     *             type: string
+     *             required: true
+     *         required:
+     *           - user_email
+     *           - points_spent
+     *           - vendor
      *     responses:
      *       200:
-     *         description: Deletes in a user
+     *         description: Gets all transactions
+     *         schema:
+     *           properties:
+     *             success:
+     *               type: boolean
+     *       400:
+     *         description: Something we're aware of went wrong, description of what went
+     *           wrong should be returned in the message of the body returned
+     *         schema:
+     *           $ref: '#/definitions/ErrorResponse'
+     *       500:
+     *         description: Something went wrong with our server or that we aren't aware of
+     *           or anticipating.
+     *         schema:
+     *           $ref: '#/definitions/ErrorResponse'
      */
 
     deleteTransaction: function (req, res) {
 
         var body = _.pick(req.body, 'user_email', 'points_spent', 'vendor');
-        if (_.keys(body).length != 3) {
+
+        // parameter validation
+        if (_.keys(body).length != 3
+        || (typeof req.body.user_email != "string")
+        || (typeof req.body.points_spent != "number")
+        || (typeof req.body.vendor != "string")
+        ) {
             return res.status(400).json({ success: false, message: helper.strings.InvalidParameters });
         }
 

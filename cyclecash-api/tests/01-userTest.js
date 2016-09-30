@@ -102,7 +102,21 @@ describe('Users', function () {
 
     it('should not login (invalid pwd)', function (done) {
 
-        done();
+        var reqBody = {
+            email: email1,
+            password: "badPassword"
+        };
+
+        request(server)
+            .post('/api/v1/users/login/')
+            .expect('Content-Type', /json/)
+            .send(reqBody)
+            .end(function (err, res) {
+                res.status.should.equal(400);
+                var json = JSON.parse(res.text);
+                json.success.should.equal(false);
+                done();
+            });
     });
 
     it('should delete user', function (done) {
