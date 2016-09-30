@@ -12,30 +12,56 @@ module.exports = {
     /**
      * @swagger
      * definition:
-     *   CreateUser:
+     *   UserBody:
+     *     properties:
+     *       email:
+     *         type: string
+     *         required: true
+     *       password:
+     *         type: string
+     *         required: true
+     *     required:
+     *       - email
+     *       - password
+     */
+
+    /**
+     * @swagger
+     * definition:
+     *   User:
      *     properties:
      *       email:
      *         type: string
      *       password:
      *         type: string
+     *       pedal_points:
+     *         type: integer
+     *       distance_traveled:
+     *         type: double
+     *       time_traveled:
+     *         type: integer
      */
 
     /**
      * @swagger
-     * /api/v1/users:
+     * definition:
+     *   User200Response:
+     *     properties:
+     *       success:
+     *         type: boolean
+     *       user:
+     *         $ref: '#/definitions/User'
+     *       message:
+     *         type: string
+     */
+
+    /**
+     * @swagger
+     * /api/v1/user:
      *   post:
      *     tags:
-     *       - Users
-     *     description: Creates a grownup.
-     *       <table>
-     *       <tr>
-     *       <td>db</td>
-     *       <td>sql check</td>
-     *       <tr>
-     *       <td>mysql</td>
-     *       <td>SELECT * FROM  "Users" WHERE email = 'email' </td>
-     *       </tr>
-     *       </table>
+     *       - User
+     *     description: Creates a user.
      *     consumes:
      *       - application/json
      *     produces:
@@ -46,12 +72,23 @@ module.exports = {
      *       in: body
      *       required: true
      *       schema:
-     *         $ref: '#/definitions/CreateUser'
+     *         $ref: '#/definitions/UserBody'
      *     responses:
      *       200:
      *         description: Creates a user
+     *         schema:
+     *           $ref: '#/definitions/User200Response
+     *       400:
+     *         description: Something we're aware of went wrong, description of what went
+     *           wrong should be returned in the message of the body returned
+     *         schema:
+     *           $ref: '#/definitions/ErrorResponse'
+     *       500:
+     *         description: Something went wrong with our server or that we aren't aware of
+     *           or anticipating.
+     *         schema:
+     *           $ref: '#/definitions/ErrorResponse'
      */
-
 
     createUser: function (req, res) {
 
@@ -60,6 +97,14 @@ module.exports = {
         params.pedal_points = 25;
         params.distance_traveled = 0.0;
         params.time_traveled = 0;
+
+        // parameter validation
+        if (_.keys(params).length != 2
+        || (typeof params.email != "string")
+        || (typeof params.password != "string")
+        ) {
+            return res.status(400).json({ success: false, message: helper.strings.InvalidParameters });
+        }
 
         models.User.findOrCreate({ where: { email: params.email }, defaults: params })
             .then(function (result) {
@@ -103,51 +148,64 @@ module.exports = {
     /**
      * @swagger
      * definition:
-     *   UpdateUser:
+     *   UserUpdate200Response:
      *     properties:
-     *       timeOffset:
-     *         type: integer
-     *       gender:
-     *         type: string
-     *       firstName:
-     *         type: string
+     *       success:
+     *         type: boolean
+     *       user:
+     *         $ref: '#/definitions/User'
      */
 
     /**
      * @swagger
-     * /api/v1/users:
+     * /api/v1/user:
      *   put:
      *     tags:
-     *       - Users
+     *       - User
      *     description: Updates a user.
-     *       <table>
-     *       <tr>
-     *       <td>db</td>
-     *       <td>sql check</td>
-     *       <tr>
-     *       <td>mysql</td>
-     *       <td>select * from "Users" where email = "email"</td>
-     *       </tr>
-     *       </table>
      *     consumes:
      *       - application/json
      *     produces:
      *       - application/json
      *     parameters:
      *     - name: user
-     *       description: Input parameters needed for updating a user
+     *       description: Input parameters needed for updating a user given an user email
      *       in: body
      *       required: true
      *       schema:
-     *         $ref: '#/definitions/UpdateUser'
+     *         properties:
+     *           email:
+     *             type: string
+     *             required: true
+     *         required:
+     *           - email
      *     responses:
      *       200:
      *         description: Updates a user
+     *         schema:
+     *           $ref: '#/definitions/UserUpdate200Response
+     *       400:
+     *         description: Something we're aware of went wrong, description of what went
+     *           wrong should be returned in the message of the body returned
+     *         schema:
+     *           $ref: '#/definitions/ErrorResponse'
+     *       500:
+     *         description: Something went wrong with our server or that we aren't aware of
+     *           or anticipating.
+     *         schema:
+     *           $ref: '#/definitions/ErrorResponse'
      */
 
     updateUser: function (req, res) {
 
         var body = req.body;
+
+        // parameter validation
+        if (_.keys(body).length != 1
+            || (typeof params.email != "string")
+        ) {
+            return res.status(400).json({ success: false, message: helper.strings.InvalidParameters });
+        }
 
         models.User.findOne({ where: { email: body.email } })
             .then(function (localUser) {
@@ -179,51 +237,56 @@ module.exports = {
 
     /**
      * @swagger
-     * definition:
-     *   SignInUser:
-     *     properties:
-     *       email:
-     *         type: string
-     *       password:
-     *         type: string
-     */
-
-    /**
-     * @swagger
-     * /api/v1/users/login:
+     * /api/v1/user/login:
      *   post:
      *     tags:
-     *       - Users
-     *     description: Signs a user in.
-     *       <table>
-     *       <tr>
-     *       <td>db</td>
-     *       <td>sql example</td>
-     *       <tr>
-     *       <td>postgres</td>
-     *       <td>select * from "Users" where email = "email"</td>
-     *       </tr>
-     *       </table>
+     *       - Login
+     *     description: Logs in a user.
      *     consumes:
      *       - application/json
      *     produces:
      *       - application/json
      *     parameters:
-     *     - name: user
-     *       description: Input parameters needed for signing in a user
+     *     - name: User
+     *       description: Input parameters needed for logging in a user
      *       in: body
      *       required: true
      *       schema:
-     *         $ref: '#/definitions/SignInUser'
+     *         properties:
+     *           email:
+     *             type: string
+     *             required: true
+     *           password:
+     *             type: string
+     *             required: true
+     *         required:
+     *           - email
+     *           - password
      *     responses:
      *       200:
-     *         description: Signs in a user
+     *         description: Logs in and returns a user
+     *         schema:
+     *           $ref: '#/definitions/User200Response
+     *       400:
+     *         description: Something we're aware of went wrong, description of what went
+     *           wrong should be returned in the message of the body returned
+     *         schema:
+     *           $ref: '#/definitions/ErrorResponse'
+     *       500:
+     *         description: Something went wrong with our server or that we aren't aware of
+     *           or anticipating.
+     *         schema:
+     *           $ref: '#/definitions/ErrorResponse'
      */
 
     loginUser: function (req, res) {
         var body = _.pick(req.body, 'email', 'password');
 
-        if (_.keys(body).length != 2) {
+        // parameter validation
+        if (_.keys(body).length != 2
+        || (typeof body.email != "string")
+        || (typeof body.password != "string")
+        ) {
             return res.status(400).json({ success: false, message: helper.strings.InvalidParameters });
         }
 
@@ -245,45 +308,48 @@ module.exports = {
 
     /**
      * @swagger
-     * definition:
-     *   SignInUser:
-     *     properties:
-     *       email:
-     *         type: string
-     *       password:
-     *         type: string
-     */
-
-    /**
-     * @swagger
-     * /api/v1/users:
+     * /api/v1/user:
      *   delete:
      *     tags:
-     *       - Users
-     *     description: Deletes a user in.
-     *       <table>
-     *       <tr>
-     *       <td>db</td>
-     *       <td>sql example</td>
-     *       <tr>
-     *       <td>postgres</td>
-     *       <td>select * from "Users" where email = "email"</td>
-     *       </tr>
-     *       </table>
+     *       - User
+     *     description: Deletes a user.
      *     consumes:
      *       - application/json
      *     produces:
      *       - application/json
      *     parameters:
      *     - name: user
-     *       description: Input parameters needed for signing in a user
+     *       description: Input parameters needed for deleting a user
      *       in: body
      *       required: true
      *       schema:
-     *         $ref: '#/definitions/SignInUser'
+     *         properties:
+     *           email:
+     *             type: string
+     *             required: true
+     *           password:
+     *             type: string
+     *             required: true
+     *         required:
+     *           - email
+     *           - password
      *     responses:
      *       200:
-     *         description: Deletes in a user
+     *         description: Deletes a user
+     *         schema:
+     *           properties:
+     *             success:
+     *               type: boolean
+     *       400:
+     *         description: Something we're aware of went wrong, description of what went
+     *           wrong should be returned in the message of the body returned
+     *         schema:
+     *           $ref: '#/definitions/ErrorResponse'
+     *       500:
+     *         description: Something went wrong with our server or that we aren't aware of
+     *           or anticipating.
+     *         schema:
+     *           $ref: '#/definitions/ErrorResponse'
      */
 
     deleteUser: function (req, res) {

@@ -12,11 +12,33 @@ module.exports = {
     /**
      * @swagger
      * definition:
+     *   TransactionBody:
+     *     properties:
+     *       user_email:
+     *         type: string
+     *         required: true
+     *       points_spent:
+     *         type: integer
+     *         required: true
+     *       vendor:
+     *         type: string
+     *         required: true
+     *     required:
+     *       - user_email
+     *       - points_spent
+     *       - vendor
+     */
+
+    /**
+     * @swagger
+     * definition:
      *   Transaction:
      *     properties:
-     *       email:
+     *       user_email:
      *         type: string
-     *       password:
+     *       points_spent:
+     *         type: integer
+     *       vendor:
      *         type: string
      */
 
@@ -61,7 +83,7 @@ module.exports = {
      *       in: body
      *       required: true
      *       schema:
-     *         $ref: '#/definitions/Transaction'
+     *         $ref: '#/definitions/TransactionBody'
      *     responses:
      *       200:
      *         description: Creates a transaction
