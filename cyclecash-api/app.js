@@ -47,18 +47,6 @@ app.use(function (req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-// routes
-app.use('/api/', apiRoutes);
-app.use('/', routes);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
 
 // docs
 process.env.NODE_ENV='local';
@@ -91,6 +79,19 @@ if (process.env.NODE_ENV != undefined && process.env.NODE_ENV.indexOf('local') !
     res.send(swaggerSpec);
   });
 }
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+// routes
+app.use('/api/', apiRoutes);
+app.use('/', routes);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
 // MARK: error handlers
 
